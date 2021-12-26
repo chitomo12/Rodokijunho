@@ -13,6 +13,7 @@
 		132F01862778611F00A81796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132F01842778611F00A81796 /* Main.storyboard */; };
 		132F01882778612100A81796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 132F01872778612100A81796 /* Assets.xcassets */; };
 		132F018B2778612100A81796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132F01892778612100A81796 /* LaunchScreen.storyboard */; };
+		132F019327786A6500A81796 /* QOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F019227786A6500A81796 /* QOneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		132F01872778612100A81796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		132F018A2778612100A81796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		132F018C2778612100A81796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		132F019227786A6500A81796 /* QOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QOneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				132F017E2778611F00A81796 /* AppDelegate.swift */,
 				132F01802778611F00A81796 /* SceneDelegate.swift */,
 				132F01822778611F00A81796 /* ViewController.swift */,
+				132F019227786A6500A81796 /* QOneViewController.swift */,
 				132F01842778611F00A81796 /* Main.storyboard */,
 				132F01872778612100A81796 /* Assets.xcassets */,
 				132F01892778612100A81796 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				132F01832778611F00A81796 /* ViewController.swift in Sources */,
+				132F019327786A6500A81796 /* QOneViewController.swift in Sources */,
 				132F017F2778611F00A81796 /* AppDelegate.swift in Sources */,
 				132F01812778611F00A81796 /* SceneDelegate.swift in Sources */,
 			);
