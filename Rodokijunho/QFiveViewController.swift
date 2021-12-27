@@ -55,7 +55,7 @@ class QFiveViewController: UIViewController {
         let imgWidth: CGFloat = attentionImage.size.width
         let imgHeight: CGFloat = attentionImage.size.height
         let scale: CGFloat = screenWidth / imgWidth
-        let rect: CGRect = CGRect(x: 0, y: 0, width: imgWidth * scale / 2, height: imgHeight * scale / 2)
+        let rect: CGRect = CGRect(x: 0, y: 0, width: imgWidth * scale / 2.1, height: imgHeight * scale / 2.1)
         imageView.frame = rect
         imageView.center = CGPoint(x: screenWidth / 2, y: screenHeight / 2)
         imageView.layer.opacity = 0.0
@@ -73,12 +73,12 @@ class QFiveViewController: UIViewController {
         downerRectView.layer.opacity = 0.0
         self.view.addSubview(downerRectView)
         
-        upperAttentionsView = AttentionImageAndTextView(frame: CGRect(x:0 , y: (screenHeight / 3) + 0, width: screenWidth * 2 , height: 100))
+        upperAttentionsView = AttentionImageAndTextView(frame: CGRect(x: 0 , y: screenHeight * 0.34, width: screenWidth * 2 , height: 100))
         upperAttentionsView.backgroundColor = .clear
         upperAttentionsView.layer.opacity = 0.0
         self.view.addSubview(upperAttentionsView)
         
-        downerAttentionsView = AttentionImageAndTextView(frame: CGRect(x:-260 , y: (screenHeight / 3) * 2 - 35, width: screenWidth * 2 , height: 100))
+        downerAttentionsView = AttentionImageAndTextView(frame: CGRect(x: -(screenWidth * 0.5) , y: (screenHeight / 3) * 1.85 , width: screenWidth * 2 , height: 100))
         downerAttentionsView.backgroundColor = .clear
         downerAttentionsView.layer.opacity = 0.0
         self.view.addSubview(downerAttentionsView)

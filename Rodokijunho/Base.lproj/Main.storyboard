@@ -45,6 +45,10 @@
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y8w-YR-wCd">
                                 <rect key="frame" x="0.0" y="74" width="414" height="448"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="QKI-k1-X58"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vQ5-Lh-y4k"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-rk-sF6">
                                 <rect key="frame" x="20" y="773" width="374" height="59"/>
@@ -57,6 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Y8w-YR-wCd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="999" id="Al1-wR-9Lk"/>
                             <constraint firstItem="euL-7r-mvI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="BRb-X6-BPA"/>
                             <constraint firstItem="Y8w-YR-wCd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IQ8-Hb-avA"/>
                             <constraint firstItem="Y8w-YR-wCd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="Krm-1j-RRN"/>
@@ -65,8 +70,7 @@
                             <constraint firstItem="ifA-rk-sF6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bkq-Kd-tQR"/>
                             <constraint firstItem="euL-7r-mvI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCt-H0-ORG"/>
                             <constraint firstItem="PZG-fc-fyj" firstAttribute="top" secondItem="euL-7r-mvI" secondAttribute="bottom" constant="5" id="ieg-Y3-fUE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y8w-YR-wCd" secondAttribute="trailing" id="lH2-Q8-2fA"/>
-                            <constraint firstItem="Y8w-YR-wCd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sgo-Yr-99B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y8w-YR-wCd" secondAttribute="trailing" priority="999" id="qy5-J9-oxZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ifA-rk-sF6" secondAttribute="trailing" constant="20" id="vKr-ez-vQc"/>
                         </constraints>
                     </view>
@@ -95,6 +99,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの職場に就業規則はありますか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmU-cL-7TF">
                                 <rect key="frame" x="20" y="265" width="374" height="93.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="z8D-ob-1hg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,13 +147,13 @@
                             <constraint firstItem="n7F-eM-sij" firstAttribute="top" secondItem="g8C-Yp-gQG" secondAttribute="top" constant="100" id="CuS-GF-Qmx"/>
                             <constraint firstItem="lmU-cL-7TF" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="Gfv-Kt-1Ka"/>
                             <constraint firstItem="2NF-o4-12Y" firstAttribute="centerY" secondItem="eGr-Ns-xzv" secondAttribute="centerY" constant="100" id="HmM-v9-8XY"/>
-                            <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="lmU-cL-7TF" secondAttribute="trailing" constant="20" id="UAa-fR-070"/>
+                            <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="lmU-cL-7TF" secondAttribute="trailing" priority="999" constant="20" id="UAa-fR-070"/>
                             <constraint firstItem="zkN-TL-WWQ" firstAttribute="top" secondItem="2NF-o4-12Y" secondAttribute="bottom" constant="60" id="Vhu-rO-JEk"/>
                             <constraint firstItem="2NF-o4-12Y" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" constant="20" id="XTX-kN-Lb2"/>
                             <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="2NF-o4-12Y" secondAttribute="trailing" constant="20" id="gxo-ak-jtl"/>
                             <constraint firstItem="n7F-eM-sij" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="jaC-ce-zgG"/>
                             <constraint firstItem="lmU-cL-7TF" firstAttribute="top" secondItem="n7F-eM-sij" secondAttribute="bottom" constant="30" id="uMa-ZE-dHr"/>
-                            <constraint firstItem="lmU-cL-7TF" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" constant="20" id="wEy-xu-zNm"/>
+                            <constraint firstItem="lmU-cL-7TF" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" priority="999" constant="20" id="wEy-xu-zNm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="58f-Zc-9uX"/>
@@ -176,6 +183,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="研修期間中の賃金はその地域の最低賃金以上ですか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-Of-0aa">
                                 <rect key="frame" x="20" y="265" width="374" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="WBv-xw-CC3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -220,9 +230,9 @@
                             <constraint firstItem="jIm-Sa-AVs" firstAttribute="top" secondItem="hPw-Je-pjD" secondAttribute="top" constant="100" id="DGP-ix-GLd"/>
                             <constraint firstItem="4yb-BS-bhN" firstAttribute="centerY" secondItem="UhQ-3W-iya" secondAttribute="centerY" constant="100" id="Dpc-Al-R1i"/>
                             <constraint firstItem="4yb-BS-bhN" firstAttribute="centerX" secondItem="UhQ-3W-iya" secondAttribute="centerX" id="F16-wZ-uUb"/>
-                            <constraint firstAttribute="trailing" secondItem="eKF-Of-0aa" secondAttribute="trailing" constant="20" id="F3g-Th-TXC"/>
+                            <constraint firstAttribute="trailing" secondItem="eKF-Of-0aa" secondAttribute="trailing" priority="999" constant="20" id="F3g-Th-TXC"/>
                             <constraint firstItem="jIm-Sa-AVs" firstAttribute="centerX" secondItem="UhQ-3W-iya" secondAttribute="centerX" id="Qr3-cQ-L4m"/>
-                            <constraint firstItem="eKF-Of-0aa" firstAttribute="leading" secondItem="UhQ-3W-iya" secondAttribute="leading" constant="20" id="cy4-er-1Br"/>
+                            <constraint firstItem="eKF-Of-0aa" firstAttribute="leading" secondItem="UhQ-3W-iya" secondAttribute="leading" priority="999" constant="20" id="cy4-er-1Br"/>
                             <constraint firstItem="jYg-O8-y7c" firstAttribute="centerX" secondItem="UhQ-3W-iya" secondAttribute="centerX" id="hVa-eE-oIX"/>
                             <constraint firstItem="jYg-O8-y7c" firstAttribute="top" secondItem="4yb-BS-bhN" secondAttribute="bottom" constant="60" id="uOR-Yu-wmk"/>
                             <constraint firstItem="eKF-Of-0aa" firstAttribute="centerX" secondItem="UhQ-3W-iya" secondAttribute="centerX" id="xy3-uO-1ac"/>
@@ -761,7 +771,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c28-py-FUn"/>
+        <segue reference="rvN-61-CC8"/>
         <segue reference="eGU-OB-zY3"/>
     </inferredMetricsTieBreakers>
     <resources>

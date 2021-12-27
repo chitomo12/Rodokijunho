@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,13 +19,16 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-b9-LrL">
                                 <rect key="frame" x="0.0" y="224" width="414" height="448"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="fBg-Yt-i4L"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HBv-b9-LrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cun-ZE-J3q"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HBv-b9-LrL" secondAttribute="trailing" id="h6C-V8-oJa"/>
+                            <constraint firstItem="HBv-b9-LrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="999" id="cun-ZE-J3q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HBv-b9-LrL" secondAttribute="trailing" priority="999" id="h6C-V8-oJa"/>
                             <constraint firstItem="HBv-b9-LrL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ieY-nD-KIV"/>
                             <constraint firstItem="HBv-b9-LrL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jdZ-4R-SLy"/>
                         </constraints>
