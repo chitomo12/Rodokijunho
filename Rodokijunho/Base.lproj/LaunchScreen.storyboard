@@ -16,15 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="NHi-gT-c30">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="HBv-b9-LrL">
+                                <rect key="frame" x="0.0" y="224" width="414" height="448"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NHi-gT-c30" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WNE-D9-Awo"/>
-                            <constraint firstItem="NHi-gT-c30" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iRt-UC-uo3"/>
+                            <constraint firstItem="HBv-b9-LrL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cun-ZE-J3q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HBv-b9-LrL" secondAttribute="trailing" id="h6C-V8-oJa"/>
+                            <constraint firstItem="HBv-b9-LrL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ieY-nD-KIV"/>
+                            <constraint firstItem="HBv-b9-LrL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jdZ-4R-SLy"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,7 +36,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="414" height="896"/>
+        <image name="launchIcon" width="207" height="448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

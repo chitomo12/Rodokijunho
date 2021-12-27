@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sdN-we-pyT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="Yef-Kb-gad">
-                                <rect key="frame" x="0.0" y="-150" width="414" height="896"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZG-fc-fyj">
                                 <rect key="frame" x="143" y="578" width="128" height="34.5"/>
                                 <state key="normal" title="Button"/>
@@ -45,19 +43,37 @@
                                     <segue destination="qfn-ZK-MRW" kind="show" id="eGU-OB-zY3"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y8w-YR-wCd">
+                                <rect key="frame" x="0.0" y="74" width="414" height="448"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifA-rk-sF6">
+                                <rect key="frame" x="20" y="773" width="374" height="59"/>
+                                <string key="text">Copyright ©︎ Masatomo Fukuda, 2021. All right reserved.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="euL-7r-mvI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="BRb-X6-BPA"/>
-                            <constraint firstItem="Yef-Kb-gad" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gxc-La-NbA"/>
+                            <constraint firstItem="Y8w-YR-wCd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IQ8-Hb-avA"/>
+                            <constraint firstItem="Y8w-YR-wCd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="Krm-1j-RRN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ifA-rk-sF6" secondAttribute="bottom" constant="30" id="PVV-5t-P3e"/>
                             <constraint firstItem="PZG-fc-fyj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VjQ-9Y-obt"/>
+                            <constraint firstItem="ifA-rk-sF6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bkq-Kd-tQR"/>
                             <constraint firstItem="euL-7r-mvI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCt-H0-ORG"/>
                             <constraint firstItem="PZG-fc-fyj" firstAttribute="top" secondItem="euL-7r-mvI" secondAttribute="bottom" constant="5" id="ieg-Y3-fUE"/>
-                            <constraint firstItem="Yef-Kb-gad" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-150" id="qsS-gk-AL2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y8w-YR-wCd" secondAttribute="trailing" id="lH2-Q8-2fA"/>
+                            <constraint firstItem="Y8w-YR-wCd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sgo-Yr-99B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ifA-rk-sF6" secondAttribute="trailing" constant="20" id="vKr-ez-vQc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hpj-0v-CwY"/>
+                    <connections>
+                        <outlet property="startButton" destination="euL-7r-mvI" id="ETb-oq-m15"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,20 +100,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-o4-12Y">
-                                <rect key="frame" x="20" y="526" width="374" height="44"/>
+                                <rect key="frame" x="20" y="521" width="374" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ある">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ある">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="4Sz-Cs-8RO" kind="show" id="gQo-2b-naF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-TL-WWQ">
-                                <rect key="frame" x="20" y="630" width="374" height="44"/>
+                                <rect key="frame" x="20" y="635" width="374" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ない">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ない">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="yWI-zf-Eav"/>
@@ -153,20 +181,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-BS-bhN">
-                                <rect key="frame" x="169.5" y="526" width="75" height="44"/>
+                                <rect key="frame" x="159" y="521" width="96" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="はい">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="はい">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="MWl-Lz-sux" kind="show" id="8dc-7C-3iV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-O8-y7c">
-                                <rect key="frame" x="157" y="630" width="100" height="44"/>
+                                <rect key="frame" x="141" y="635" width="132" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="いいえ">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="いいえ">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="4Sz-Cs-8RO" eventType="touchUpInside" id="C1L-Xe-g9P"/>
@@ -276,7 +316,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="K9R-QQ-emf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -391,20 +431,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-ey-gQi">
-                                <rect key="frame" x="169.5" y="526" width="75" height="44"/>
+                                <rect key="frame" x="160.5" y="520.5" width="93" height="55"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ある">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ある">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="34"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="MWl-Lz-sux" eventType="touchUpInside" id="yKW-N9-EF1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6m-VJ-zJc">
-                                <rect key="frame" x="169.5" y="630" width="75" height="44"/>
+                                <rect key="frame" x="159" y="635.5" width="96" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ない">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ない">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="I1s-bV-L76"/>
@@ -459,20 +511,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-Mq-z91">
-                                <rect key="frame" x="169.5" y="526" width="75" height="44"/>
+                                <rect key="frame" x="159" y="521" width="96" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="はい">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="はい">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="Hfw-Rw-Ns6" eventType="touchUpInside" id="i9J-f8-H0a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-Uc-4cv">
-                                <rect key="frame" x="157" y="630" width="100" height="44"/>
+                                <rect key="frame" x="141" y="635" width="132" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="いいえ">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="いいえ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="c6R-e8-ylJ"/>
@@ -527,20 +592,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-LM-GTa">
-                                <rect key="frame" x="169.5" y="526" width="75" height="44"/>
+                                <rect key="frame" x="159" y="521" width="96" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="はい">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="はい">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="My7-vD-cIX" kind="show" id="yU9-Pt-uYc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbj-cl-yiR">
-                                <rect key="frame" x="157" y="630" width="100" height="44"/>
+                                <rect key="frame" x="141" y="635" width="132" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="いいえ">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="いいえ">
+                                            <attributes>
+                                                <font key="NSFont" size="36" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="segueToIhan:" destination="RNe-gG-dwV" eventType="touchUpInside" id="Owv-V4-OYf"/>
@@ -684,12 +761,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CnX-Z8-Hkx"/>
+        <segue reference="c28-py-FUn"/>
         <segue reference="eGU-OB-zY3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.closed.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="launch" width="414" height="896"/>
+        <image name="launchIcon" width="207" height="448"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

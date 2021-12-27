@@ -8,8 +8,6 @@
 import UIKit
 
 class QFiveViewController: UIViewController {
-
-    
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var questionText: UILabel!
     
@@ -80,17 +78,23 @@ class QFiveViewController: UIViewController {
         upperAttentionsView.layer.opacity = 0.0
         self.view.addSubview(upperAttentionsView)
         
-        downerAttentionsView = AttentionImageAndTextView(frame: CGRect(x:-160 , y: (screenHeight / 3) * 2 - 35, width: screenWidth * 2 , height: 100))
+        downerAttentionsView = AttentionImageAndTextView(frame: CGRect(x:-260 , y: (screenHeight / 3) * 2 - 35, width: screenWidth * 2 , height: 100))
         downerAttentionsView.backgroundColor = .clear
         downerAttentionsView.layer.opacity = 0.0
         self.view.addSubview(downerAttentionsView)
     }
     
     func animateAndSegue(){
+        // アラート音を再生
+        playAlertAudio()
+        
         UIView.animate(withDuration: 4.0, delay: 0.0, options: [.curveLinear], animations: {
             self.upperAttentionsView.center.x -= 200
             self.downerAttentionsView.center.x += 200
-        }, completion: nil)
+        }, completion: { _ in
+            self.upperAttentionsView.center.x += 200
+            self.downerAttentionsView.center.x -= 200
+        })
 
         UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [.calculationModeLinear], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
@@ -112,6 +116,9 @@ class QFiveViewController: UIViewController {
                 self.imageView.layer.opacity = 0.0
             })
         }) { _ in
+            // アラート音をストップ
+            stopAlertAudio()
+            
             self.upperRectView.layer.opacity = 0.0
             self.downerRectView.layer.opacity = 0.0
             self.upperAttentionsView.layer.opacity = 0.0

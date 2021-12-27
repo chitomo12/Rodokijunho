@@ -56,6 +56,11 @@ class IhanViewController: UIViewController {
     
     @IBAction func shareButton(_ sender: Any) {
         print("シェアボタンを押しました")
+        let shareText = "\(self.attentionText!)\n#アプリ労働基準法"
+        let shareItems = [shareText]
+        let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        controller.popoverPresentationController?.sourceView = view
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func backToTitle(_ sender: Any) {
