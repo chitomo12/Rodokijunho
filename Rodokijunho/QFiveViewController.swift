@@ -1,14 +1,15 @@
 //
-//  QOneViewController.swift
+//  QFiveViewController.swift
 //  Rodokijunho
 //
-//  Created by 福田正知 on 2021/12/26.
+//  Created by 福田正知 on 2021/12/27.
 //
 
 import UIKit
 
-class QOneViewController: UIViewController {
+class QFiveViewController: UIViewController {
 
+    
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var questionText: UILabel!
     
@@ -29,23 +30,12 @@ class QOneViewController: UIViewController {
         if let nextView = segue.destination as? IhanViewController {
             nextView.argString = self.questionNumber.text
             nextView.questionText = self.questionText.text
-            nextView.attentionText = "あなたの職場は〈労働基準法第八十九条違反〉の可能性があります。"
-            nextView.kaisetsuText = "常時10人以上が在籍する職場には就業規則の策定が労働基準法第八十九条により義務付けられています。\n仮に従業員数10人未満の職場であっても、無用なトラブルを避けるために就業規則の設置が推奨されています。"
+            nextView.attentionText = "あなたの職場は〈労働基準法第三十九条違反〉の可能性があります。"
+            nextView.kaisetsuText = "労働基準法では、雇用日から半年間連続勤務し、全労働日の８割以上出勤した労働者に対して10日以上の有給休暇の付与を義務付けています。"
             nextView.sankouText = """
             労働基準法
-            第八十九条　常時十人以上の労働者を使用する使用者は、次に掲げる事項について就業規則を作成し、行政官庁に届け出なければならない。次に掲げる事項を変更した場合においても、同様とする。
-            一　始業及び終業の時刻、休憩時間、休日、休暇並びに労働者を二組以上に分けて交替に就業させる場合においては就業時転換に関する事項
-            二　賃金（臨時の賃金等を除く。以下この号において同じ。）の決定、計算及び支払の方法、賃金の締切り及び支払の時期並びに昇給に関する事項
-            三　退職に関する事項（解雇の事由を含む。）
-            三の二　退職手当の定めをする場合においては、適用される労働者の範囲、退職手当の決定、計算及び支払の方法並びに退職手当の支払の時期に関する事項
-            四　臨時の賃金等（退職手当を除く。）及び最低賃金額の定めをする場合においては、これに関する事項
-            五　労働者に食費、作業用品その他の負担をさせる定めをする場合においては、これに関する事項
-            六　安全及び衛生に関する定めをする場合においては、これに関する事項
-            七　職業訓練に関する定めをする場合においては、これに関する事項
-            八　災害補償及び業務外の傷病扶助に関する定めをする場合においては、これに関する事項
-            九　表彰及び制裁の定めをする場合においては、その種類及び程度に関する事項
-            十　前各号に掲げるもののほか、当該事業場の労働者のすべてに適用される定めをする場合においては、これに関する事項
-        """
+            第三十九条　使用者は、その雇入れの日から起算して六箇月間継続勤務し全労働日の八割以上出勤した労働者に対して、継続し、又は分割した十労働日の有給休暇を与えなければならない。
+            """
         }
     }
     
@@ -131,8 +121,10 @@ class QOneViewController: UIViewController {
             let nextView = storyboard.instantiateViewController(withIdentifier: "ihanView") as! IhanViewController
             nextView.argString = self.questionNumber.text
             nextView.questionText = self.questionText.text
-            self.performSegue(withIdentifier: "toIhanView", sender: self)
+            // ビューごとにセグエのIDを設定する
+            self.performSegue(withIdentifier: "toIhanViewFromQFive", sender: self)
         }
     }
+
 
 }
