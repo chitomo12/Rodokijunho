@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13225996277CB7F10056CF36 /* quiz1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13225995277CB7F10056CF36 /* quiz1.csv */; };
 		1327699927787DBB0010310F /* IhanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327699827787DBB0010310F /* IhanViewController.swift */; };
 		132F017F2778611F00A81796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F017E2778611F00A81796 /* AppDelegate.swift */; };
 		132F01812778611F00A81796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F01802778611F00A81796 /* SceneDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13225995277CB7F10056CF36 /* quiz1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz1.csv; sourceTree = "<group>"; };
 		1327699827787DBB0010310F /* IhanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IhanViewController.swift; sourceTree = "<group>"; };
 		132F017B2778611F00A81796 /* Rodokijunho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rodokijunho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		132F017E2778611F00A81796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				135F5E032779F13B004AD5FB /* AlertData.swift */,
 				1327699827787DBB0010310F /* IhanViewController.swift */,
 				135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */,
+				13225995277CB7F10056CF36 /* quiz1.csv */,
 				132F01842778611F00A81796 /* Main.storyboard */,
 				132F01872778612100A81796 /* Assets.xcassets */,
 				132F01892778612100A81796 /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 				135F5E062779F32E004AD5FB /* alert2.mp3 in Resources */,
 				132F018B2778612100A81796 /* LaunchScreen.storyboard in Resources */,
 				135F5E082779FB1D004AD5FB /* ReadMe.md in Resources */,
+				13225996277CB7F10056CF36 /* quiz1.csv in Resources */,
 				135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */,
 				132F01882778612100A81796 /* Assets.xcassets in Resources */,
 				132F01862778611F00A81796 /* Main.storyboard in Resources */,
