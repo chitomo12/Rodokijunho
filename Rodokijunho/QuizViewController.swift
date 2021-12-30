@@ -18,6 +18,7 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var quizNumber: UILabel!
     @IBOutlet weak var quizText: UITextView!
+    @IBOutlet weak var quizNumberAndText: UIView!
     @IBOutlet var answerButton1: UIButton!
     @IBOutlet var answerButton2: UIButton!
     
@@ -25,12 +26,12 @@ class QuizViewController: UIViewController {
         print(sender.tag)
         if sender.tag == Int(quizArray[2]) {
             print("正解")
-            
+            UserDefaults.standard.set(true, forKey: "quiz\(quizArray[0])")
         } else {
             print("不正解")
         }
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
-            self.quizNumber.frame.origin.x += 0.01
+            self.quizNumberAndText.center.x += 0.01
         }, completion: { _ in
             self.nextQuiz()
         })
@@ -42,7 +43,7 @@ class QuizViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         csvArray = loadCSV(fileName: "quiz1")
-        quizArray = csvArray[count].components(separatedBy: ",")
+        quizArray = csvArray[count - 1].components(separatedBy: ",")
         quizNumber.text = "第\(String(count))問"
         quizText.text = quizArray[1]
         answerButton1.setTitle(quizArray[3], for: .normal)
@@ -62,6 +63,10 @@ class QuizViewController: UIViewController {
             print("lineChange: \(lineChange)")
             // Stringを元に、String型のArrayを作る
             csvArray = lineChange.components(separatedBy: "\n")
+            // ヘッダー行を削除する
+            csvArray.removeFirst()
+            // 順番をランダムにする
+            csvArray.shuffle()
             // XCodeの仕様上、csvをエディタで編集すると最後に余分な行ができるので削除する
             csvArray = csvArray.filter{ !$0.isEmpty }
         } catch {
@@ -72,26 +77,26 @@ class QuizViewController: UIViewController {
     
     // 次の問題に進む
     func nextQuiz(){
-        if count < csvArray.count - 1 {
+        if count < csvArray.count {
             count += 1
-            quizArray = csvArray[count].components(separatedBy: ",")
+            quizArray = csvArray[count - 1].components(separatedBy: ",")
             UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: {
-                self.quizNumber.center.x -= 100
-                self.quizNumber.layer.opacity = 0.0
+                self.quizNumberAndText.center.x -= 100
+                self.quizNumberAndText.layer.opacity = 0.0
             }, completion: { _ in
-//                // ビューのテキストを更新
+                // ビューのテキストを更新
                 self.quizNumber.text = "第\(String(self.count))問"
                 self.quizText.text = self.quizArray[1]
                 self.answerButton1.setTitle(self.quizArray[3], for: .normal)
                 self.answerButton2.setTitle(self.quizArray[4], for: .normal)
-                self.quizNumber.center.x += 200
+                self.quizNumberAndText.center.x += 200
                 // アニメーション付きでテキストを再表示
                 UIView.animate(withDuration: 0.3, delay: 0.5, options: [.curveEaseInOut], animations: {
-                    self.quizNumber.layer.opacity = 1.0
-                    self.quizNumber.center.x -= 100
+                    self.quizNumberAndText.center.x -= 100
+                    self.quizNumberAndText.layer.opacity = 1.0
                 }, completion: nil )
             })
-        } else if count == csvArray.count - 1 {
+        } else if count >= csvArray.count {
             // 結果画面に遷移
             print("結果画面に遷移します")
         }
