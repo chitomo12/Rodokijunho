@@ -244,32 +244,56 @@ All right reserved.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-oD-D8i">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-oD-D8i">
+                                <rect key="frame" x="0.0" y="197" width="414" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" name="mainColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ysJ-f9-fSH" id="bnr-lC-8Cp"/>
                                     <outlet property="delegate" destination="ysJ-f9-fSH" id="HAb-1K-tp4"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在の成績" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ2-Vx-BSu">
+                                <rect key="frame" x="111" y="110" width="192" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クイズモードの成績を表示しています" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8I-4H-8Ge">
+                                <rect key="frame" x="76.5" y="159" width="261" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="8Yo-Un-MzB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8Yo-Un-MzB" firstAttribute="bottom" secondItem="Svx-oD-D8i" secondAttribute="bottom" id="4bb-9Q-VWa"/>
-                            <constraint firstItem="Svx-oD-D8i" firstAttribute="top" secondItem="8Yo-Un-MzB" secondAttribute="top" id="Iid-nN-C3k"/>
-                            <constraint firstItem="Svx-oD-D8i" firstAttribute="leading" secondItem="8Yo-Un-MzB" secondAttribute="leading" id="ml7-vW-IEB"/>
-                            <constraint firstItem="8Yo-Un-MzB" firstAttribute="trailing" secondItem="Svx-oD-D8i" secondAttribute="trailing" id="svA-Wj-UkP"/>
+                            <constraint firstAttribute="bottom" secondItem="Svx-oD-D8i" secondAttribute="bottom" id="4bb-9Q-VWa"/>
+                            <constraint firstItem="Svx-oD-D8i" firstAttribute="top" secondItem="Y8I-4H-8Ge" secondAttribute="bottom" constant="20" id="9gL-FX-YTo"/>
+                            <constraint firstItem="cQ2-Vx-BSu" firstAttribute="centerX" secondItem="YoF-Fh-n7v" secondAttribute="centerX" id="LOr-8T-hEj"/>
+                            <constraint firstItem="cQ2-Vx-BSu" firstAttribute="top" secondItem="YoF-Fh-n7v" secondAttribute="top" constant="110" id="Yud-cr-NkQ"/>
+                            <constraint firstItem="Y8I-4H-8Ge" firstAttribute="top" secondItem="cQ2-Vx-BSu" secondAttribute="bottom" constant="3" id="fqL-ru-2Gm"/>
+                            <constraint firstItem="Y8I-4H-8Ge" firstAttribute="centerX" secondItem="YoF-Fh-n7v" secondAttribute="centerX" id="kmc-uR-3cZ"/>
+                            <constraint firstItem="Svx-oD-D8i" firstAttribute="leading" secondItem="YoF-Fh-n7v" secondAttribute="leading" id="ml7-vW-IEB"/>
+                            <constraint firstAttribute="trailing" secondItem="Svx-oD-D8i" secondAttribute="trailing" id="svA-Wj-UkP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tST-xD-uCC"/>
+                    <navigationItem key="navigationItem" id="tST-xD-uCC">
+                        <barButtonItem key="rightBarButtonItem" title="リセット" id="jif-hy-el4">
+                            <imageReference key="image" image="gobackward" catalog="system" renderingMode="template"/>
+                            <color key="tintColor" name="red"/>
+                            <connections>
+                                <action selector="resetButton:" destination="ysJ-f9-fSH" id="4E3-ZL-lmf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Svx-oD-D8i" id="YId-9f-RSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dy0-S4-oG6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="1365"/>
+            <point key="canvasLocation" x="76.811594202898561" y="1364.7321428571429"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="MRg-It-g1h">
@@ -1024,11 +1048,15 @@ All right reserved.</string>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.closed.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="gobackward" catalog="system" width="121" height="128"/>
         <image name="launchIcon" width="207" height="448"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="mainColor">
             <color red="0.5" green="0.88099998235702515" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

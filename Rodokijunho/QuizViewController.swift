@@ -26,9 +26,13 @@ class QuizViewController: UIViewController {
         print(sender.tag)
         if sender.tag == Int(quizArray[2]) {
             print("正解")
-            UserDefaults.standard.set(true, forKey: "quiz\(quizArray[0])")
+//            UserDefaults.standard.set(true, forKey: "quiz\(quizArray[0])")
+            UserDefaults.standard.set(true, forKey: "q\(quizArray[0])_answeredCorrectly")
+            print("q\(quizArray[0])_answeredCorrectly -> true")
         } else {
             print("不正解")
+            UserDefaults.standard.set(false, forKey: "q\(quizArray[0])_answeredCorrectly")
+            print("q\(quizArray[0])_answeredCorrectly -> false")
         }
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.quizNumberAndText.center.x += 0.01
