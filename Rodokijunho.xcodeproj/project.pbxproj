@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13225996277CB7F10056CF36 /* quiz1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13225995277CB7F10056CF36 /* quiz1.csv */; };
+		13225998277CB9250056CF36 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13225997277CB9250056CF36 /* QuizViewController.swift */; };
 		1327699927787DBB0010310F /* IhanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327699827787DBB0010310F /* IhanViewController.swift */; };
 		132F017F2778611F00A81796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F017E2778611F00A81796 /* AppDelegate.swift */; };
 		132F01812778611F00A81796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F01802778611F00A81796 /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		13225995277CB7F10056CF36 /* quiz1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz1.csv; sourceTree = "<group>"; };
+		13225997277CB9250056CF36 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		1327699827787DBB0010310F /* IhanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IhanViewController.swift; sourceTree = "<group>"; };
 		132F017B2778611F00A81796 /* Rodokijunho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rodokijunho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		132F017E2778611F00A81796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				135F5E032779F13B004AD5FB /* AlertData.swift */,
 				1327699827787DBB0010310F /* IhanViewController.swift */,
 				135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */,
+				13225997277CB9250056CF36 /* QuizViewController.swift */,
 				13225995277CB7F10056CF36 /* quiz1.csv */,
 				132F01842778611F00A81796 /* Main.storyboard */,
 				132F01872778612100A81796 /* Assets.xcassets */,
@@ -189,6 +192,7 @@
 				132F01832778611F00A81796 /* ViewController.swift in Sources */,
 				132F019327786A6500A81796 /* QOneViewController.swift in Sources */,
 				13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */,
+				13225998277CB9250056CF36 /* QuizViewController.swift in Sources */,
 				132F017F2778611F00A81796 /* AppDelegate.swift in Sources */,
 				13A96C522779B57800A9D196 /* QFiveViewController.swift in Sources */,
 				135F5E002779BB27004AD5FB /* LastPageViewController.swift in Sources */,
