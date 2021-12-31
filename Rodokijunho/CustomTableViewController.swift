@@ -10,9 +10,28 @@ import UIKit
 class CustomTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
+        
     var csvArray: [String] = []
     
+//    var maskLayer: CAShapeLayer = CAShapeLayer()
+//    let cornerRadius = 50.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        csvArray = loadCSV(fileName: "quiz1")
+        
+        tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        
+//        let maskLayer = CAShapeLayer()
+//        maskLayer.path = UIBezierPath(
+//            roundedRect: view.bounds, byRoundingCorners: .allCorners, cornerRadii: .init(width: cornerRadius, height: cornerRadius)).cgPath
+//        tableView.layer.mask = maskLayer
+//        tableView.layer.masksToBounds = true
+    }
+    
+    // 画面右上のリセットボタンの処理
     @IBAction func resetButton(_ sender: Any) {
         let alert: UIAlertController = UIAlertController.init(title: "成績データを初期化", message: "成績データを初期化します。", preferredStyle: UIAlertController.Style.alert)
         let cancelAction: UIAlertAction = UIAlertAction.init(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: {
@@ -27,16 +46,6 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         present(alert, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        csvArray = loadCSV(fileName: "quiz1")
-        
-        tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (csvArray.count)
     }
@@ -44,6 +53,7 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         cell.settingContents(indexPath: indexPath, csvArray: csvArray)
+        
         return cell
     }
     

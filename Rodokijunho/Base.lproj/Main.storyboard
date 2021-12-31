@@ -149,12 +149,18 @@ All right reserved.</string>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="DFN-5C-1UB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="button1" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="mainColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                    <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="button1">
+                                            <attributes>
+                                                <font key="NSFont" size="22" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="answerButtonAction:" destination="zzW-IC-02F" eventType="touchUpInside" id="N89-Pm-TO9"/>
@@ -171,7 +177,7 @@ All right reserved.</string>
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" name="mainColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                     <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -208,6 +214,46 @@ All right reserved.</string>
                                     <constraint firstItem="sa1-vt-pdD" firstAttribute="centerX" secondItem="hEr-gw-4Z4" secondAttribute="centerX" id="s2k-YZ-zDB"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tb-C2-2xv">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MG2-xO-e3r">
+                                        <rect key="frame" x="110" y="30" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="LfQ-I8-1Bf"/>
+                                            <constraint firstAttribute="width" constant="80" id="wgd-PZ-qCr"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rj-15-QlJ">
+                                        <rect key="frame" x="20" y="236" width="260" height="34"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="次の問題へ">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="HiraginoSans-W7"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" name="mainColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toNextQuizButtonAction:" destination="zzW-IC-02F" eventType="touchUpInside" id="GqQ-k4-l5W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="MG2-xO-e3r" firstAttribute="centerX" secondItem="5Tb-C2-2xv" secondAttribute="centerX" id="4L2-1S-rbf"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Rj-15-QlJ" secondAttribute="bottom" constant="30" id="HBk-E5-pfv"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Rj-15-QlJ" secondAttribute="trailing" constant="20" id="QXk-yE-9CD"/>
+                                    <constraint firstItem="MG2-xO-e3r" firstAttribute="top" secondItem="5Tb-C2-2xv" secondAttribute="top" constant="30" id="Ys4-6Q-33A"/>
+                                    <constraint firstAttribute="height" constant="300" id="Zzv-7h-lBu"/>
+                                    <constraint firstAttribute="width" constant="300" id="eYW-xo-3OU"/>
+                                    <constraint firstItem="9Rj-15-QlJ" firstAttribute="leading" secondItem="5Tb-C2-2xv" secondAttribute="leading" constant="20" id="jks-xv-jwQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1tm-WE-bg2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,9 +261,11 @@ All right reserved.</string>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="centerX" secondItem="eA6-yZ-Z9m" secondAttribute="centerX" id="10K-PF-uL3"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="top" secondItem="ucU-n8-6xp" secondAttribute="bottom" constant="29" id="8wN-oB-g4G"/>
                             <constraint firstItem="xuR-n5-l9B" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="HwU-mL-lBl"/>
+                            <constraint firstItem="5Tb-C2-2xv" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" id="Isq-3t-HWa"/>
                             <constraint firstItem="xuR-n5-l9B" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="200" id="aOP-LO-mI0"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="100" id="bJB-jQ-gLq"/>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="top" secondItem="1tm-WE-bg2" secondAttribute="top" constant="80" id="fgw-jg-Lbg"/>
+                            <constraint firstItem="5Tb-C2-2xv" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="iGQ-of-J3u"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="o3z-E5-KyH"/>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="leading" secondItem="1tm-WE-bg2" secondAttribute="leading" id="yVG-q3-zjZ"/>
                         </constraints>
@@ -227,14 +275,44 @@ All right reserved.</string>
                     <connections>
                         <outlet property="answerButton1" destination="eA6-yZ-Z9m" id="dZc-kr-CmN"/>
                         <outlet property="answerButton2" destination="xuR-n5-l9B" id="dmG-j3-suD"/>
+                        <outlet property="judgeImage" destination="MG2-xO-e3r" id="2CJ-qM-jfy"/>
+                        <outlet property="judgeView" destination="5Tb-C2-2xv" id="MhX-Ge-H9J"/>
                         <outlet property="quizNumber" destination="hEr-gw-4Z4" id="gdN-kq-6QK"/>
                         <outlet property="quizNumberAndText" destination="ucU-n8-6xp" id="QSH-tr-D7n"/>
                         <outlet property="quizText" destination="sa1-vt-pdD" id="6CR-Fw-U74"/>
+                        <outlet property="toNextQuizButton" destination="9Rj-15-QlJ" id="Qdq-fA-bbZ"/>
+                        <segue destination="SeX-J9-GVk" kind="show" identifier="toResultSegue" id="uW5-Sk-q0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoS-w0-oxC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1829" y="868"/>
+            <point key="canvasLocation" x="1828.985507246377" y="867.85714285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EdJ-1h-J1d">
+            <objects>
+                <viewController id="SeX-J9-GVk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="91F-1F-dqK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7E2-7H-fMN">
+                                <rect key="frame" x="167" y="221" width="81" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UnE-zW-mXI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HLL-Az-QOS"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFn-mg-H5z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2706" y="868"/>
         </scene>
         <!--Custom Table View Controller-->
         <scene sceneID="KSp-5D-rPi">
@@ -247,7 +325,7 @@ All right reserved.</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-oD-D8i">
                                 <rect key="frame" x="0.0" y="197" width="414" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="separatorColor" name="mainColor"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ysJ-f9-fSH" id="bnr-lC-8Cp"/>
                                     <outlet property="delegate" destination="ysJ-f9-fSH" id="HAb-1K-tp4"/>
@@ -672,7 +750,7 @@ All right reserved.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YE5-Ho-neZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2291" y="-642"/>
+            <point key="canvasLocation" x="3564" y="-733"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nlQ-t1-VOH">

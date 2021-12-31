@@ -9,6 +9,8 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var cellView: UIView!
+    
     @IBOutlet weak var mainTableLabel: UILabel!
     @IBOutlet weak var quizText: UILabel!
     

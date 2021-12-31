@@ -22,24 +22,23 @@ class QuizViewController: UIViewController {
     @IBOutlet var answerButton1: UIButton!
     @IBOutlet var answerButton2: UIButton!
     
-    @IBAction func answerButtonAction(_ sender: UIButton) {
-        print(sender.tag)
-        if sender.tag == Int(quizArray[2]) {
-            print("正解")
-//            UserDefaults.standard.set(true, forKey: "quiz\(quizArray[0])")
-            UserDefaults.standard.set(true, forKey: "q\(quizArray[0])_answeredCorrectly")
-            print("q\(quizArray[0])_answeredCorrectly -> true")
-        } else {
-            print("不正解")
-            UserDefaults.standard.set(false, forKey: "q\(quizArray[0])_answeredCorrectly")
-            print("q\(quizArray[0])_answeredCorrectly -> false")
-        }
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
+    @IBOutlet weak var judgeView: UIView!
+    @IBOutlet weak var judgeImage: UIImageView!
+    
+    @IBOutlet weak var toNextQuizButton: UIButton!
+    @IBAction func toNextQuizButtonAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.quizNumberAndText.center.x += 0.01
         }, completion: { _ in
             self.nextQuiz()
         })
     }
+    
+    // button
+    let buttonTextAttributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.systemFont(ofSize: 22),
+        .foregroundColor: UIColor.white,
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +49,45 @@ class QuizViewController: UIViewController {
         quizArray = csvArray[count - 1].components(separatedBy: ",")
         quizNumber.text = "第\(String(count))問"
         quizText.text = quizArray[1]
-        answerButton1.setTitle(quizArray[3], for: .normal)
-        answerButton2.setTitle(quizArray[4], for: .normal)
+        answerButton1.setAttributedTitle(
+            NSAttributedString(string: quizArray[3],
+                               attributes: buttonTextAttributes),
+            for: .normal
+        )
+        answerButton2.setAttributedTitle(
+            NSAttributedString(string: quizArray[4],
+                               attributes: buttonTextAttributes),
+            for: .normal
+        )
+        self.judgeView.isHidden = true
+    }
+    
+    // 回答ボタンを押した後の処理
+    @IBAction func answerButtonAction(_ sender: UIButton) {
+        print(sender.tag)
+        if sender.tag == Int(quizArray[2]) {
+            print("正解")
+            UserDefaults.standard.set(true, forKey: "q\(quizArray[0])_answeredCorrectly")
+            print("q\(quizArray[0])_answeredCorrectly -> true")
+            self.judgeImage.image = UIImage(systemName: "circle")
+        } else {
+            print("不正解")
+            UserDefaults.standard.set(false, forKey: "q\(quizArray[0])_answeredCorrectly")
+            print("q\(quizArray[0])_answeredCorrectly -> false")
+            self.judgeImage.image = UIImage(systemName: "xmark")
+        }
         
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-        print("UserDefaults.standard.bool(forKey: \"isLoggedIn\"): \(UserDefaults.standard.bool(forKey: "isLoggedIn"))")
+        // 最後の問題の場合、「次の問題へ」を「結果画面へ」に変える
+        if count >= csvArray.count {
+            let nextButtonTextAttributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 20, weight: .bold),
+                .foregroundColor: UIColor(named:"mainColor"),
+            ]
+            self.toNextQuizButton.setAttributedTitle(NSAttributedString(string: "結果画面へ", attributes: nextButtonTextAttributes),
+                                                     for: .normal)
+        }
+        // 判定Viewを表示する
+        self.judgeView.isHidden = false
     }
     
     // CSVを読み込むメソッド
@@ -81,18 +114,31 @@ class QuizViewController: UIViewController {
     
     // 次の問題に進む
     func nextQuiz(){
+        
+        judgeView.isHidden = true
+        
         if count < csvArray.count {
             count += 1
             quizArray = csvArray[count - 1].components(separatedBy: ",")
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: [], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0.1, options: [], animations: {
                 self.quizNumberAndText.center.x -= 100
                 self.quizNumberAndText.layer.opacity = 0.0
             }, completion: { _ in
                 // ビューのテキストを更新
                 self.quizNumber.text = "第\(String(self.count))問"
                 self.quizText.text = self.quizArray[1]
-                self.answerButton1.setTitle(self.quizArray[3], for: .normal)
-                self.answerButton2.setTitle(self.quizArray[4], for: .normal)
+                
+                self.answerButton1.setAttributedTitle(
+                    NSAttributedString(string: self.quizArray[3],
+                                       attributes: self.buttonTextAttributes),
+                    for: .normal
+                )
+                self.answerButton2.setAttributedTitle(
+                    NSAttributedString(string: self.quizArray[4],
+                                       attributes: self.buttonTextAttributes),
+                    for: .normal
+                )
+                
                 self.quizNumberAndText.center.x += 200
                 // アニメーション付きでテキストを再表示
                 UIView.animate(withDuration: 0.3, delay: 0.5, options: [.curveEaseInOut], animations: {
@@ -103,6 +149,7 @@ class QuizViewController: UIViewController {
         } else if count >= csvArray.count {
             // 結果画面に遷移
             print("結果画面に遷移します")
+            performSegue(withIdentifier: "toResultSegue", sender: nil)
         }
     }
     
