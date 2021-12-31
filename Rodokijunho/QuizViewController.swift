@@ -15,6 +15,8 @@ class QuizViewController: UIViewController {
     var quizArray: [String] = []
     // 現在の問題番号をカウントするための変数（CSV内の問題番号とは独立）
     var count = 1
+    // 正解数をカウント
+    var correctCount = 0
     
     @IBOutlet weak var quizNumber: UILabel!
     @IBOutlet weak var quizText: UITextView!
@@ -24,6 +26,7 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var judgeView: UIView!
     @IBOutlet weak var judgeImage: UIImageView!
+    @IBOutlet weak var explainText: UITextView!
     
     @IBOutlet weak var toNextQuizButton: UIButton!
     @IBAction func toNextQuizButtonAction(_ sender: Any) {
@@ -33,6 +36,7 @@ class QuizViewController: UIViewController {
             self.nextQuiz()
         })
     }
+    @IBOutlet weak var judgeText: UILabel!
     
     // button
     let buttonTextAttributes: [NSAttributedString.Key: Any] = [
@@ -68,14 +72,17 @@ class QuizViewController: UIViewController {
         if sender.tag == Int(quizArray[2]) {
             print("正解")
             UserDefaults.standard.set(true, forKey: "q\(quizArray[0])_answeredCorrectly")
-            print("q\(quizArray[0])_answeredCorrectly -> true")
-            self.judgeImage.image = UIImage(systemName: "circle")
+            self.judgeImage.image = UIImage(systemName: "circle")?.withTintColor(UIColor(named: "mainColor")!)
+            self.judgeText.text = "正解！"
+            self.correctCount += 1
         } else {
             print("不正解")
             UserDefaults.standard.set(false, forKey: "q\(quizArray[0])_answeredCorrectly")
-            print("q\(quizArray[0])_answeredCorrectly -> false")
             self.judgeImage.image = UIImage(systemName: "xmark")
+            self.judgeText.text = "不正解！"
         }
+        
+        self.explainText.text = quizArray[6]
         
         // 最後の問題の場合、「次の問題へ」を「結果画面へ」に変える
         if count >= csvArray.count {
@@ -87,7 +94,15 @@ class QuizViewController: UIViewController {
                                                      for: .normal)
         }
         // 判定Viewを表示する
+        self.judgeImage.frame = CGRect(x: 40, y: 40, width: 1, height: 1)
         self.judgeView.isHidden = false
+//        UIView.animate(withDuration: 0.2,
+//                       animations: {
+//            self.judgeImage.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+//        })
+        UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.judgeImage.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        }, completion: nil)
     }
     
     // CSVを読み込むメソッド
@@ -150,6 +165,15 @@ class QuizViewController: UIViewController {
             // 結果画面に遷移
             print("結果画面に遷移します")
             performSegue(withIdentifier: "toResultSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultSegue" {
+            print("結果を表示します")
+            let nextView = segue.destination as! ScoreViewController
+            nextView.score = correctCount
+            nextView.numberOfQuiz = csvArray.count
         }
     }
     
