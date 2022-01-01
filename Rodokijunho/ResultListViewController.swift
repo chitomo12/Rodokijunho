@@ -35,7 +35,7 @@ class CircleGraphView: UIView {
                                   clockwise: true)
         UIColor(red:0.6,green:0.9,blue:0.6,alpha:1).setStroke()
         circle.lineWidth = 7
-        circle.stroke()
+//        circle.stroke()
         
 //        let style = NSMutableParagraphStyle()
 //        style.alignment = NSTextAlignment.center
@@ -49,7 +49,7 @@ class CircleGraphView: UIView {
 }
 
 // 成績一覧画面
-class CustomTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ResultListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var graphView: UIView!
@@ -57,6 +57,8 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var numberOfSolvedLabel: UILabel!
     
     var csvArray: [String] = []
+    var quizNumber: Int = 0
+    var solvedNumber: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +74,8 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         graphView.addSubview(circleGraphView)
         
         // graphViewに正解数を表示
-        let quizNumber = csvArray.count
-        var solvedNumber = 0
+        quizNumber = csvArray.count
+        solvedNumber = 0
         for i in 1...quizNumber {
             if UserDefaults.standard.bool(forKey: "q\(i)_answeredCorrectly") == true {
                 solvedNumber += 1
@@ -82,6 +84,45 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         self.numberOfSolvedLabel.text = "\(solvedNumber)/\(quizNumber)問"
         graphView.addSubview(numberOfSolvedLabel)
         graphView.addSubview(seikaisuLabel)
+        
+        createCircle()
+    }
+    
+    func createCircle() {
+        
+        // animationTest
+//        let path = UIBezierPath()
+        let path = UIBezierPath(arcCenter: CGPoint(x: 60, y: 60), radius: 50, startAngle: CGFloat(Double.pi) * (-0.5), endAngle: CGFloat(Double.pi) * (2.0 * ( CGFloat(solvedNumber) / CGFloat(quizNumber) ) - 0.5), clockwise: true)
+        UIColor.clear.setFill()
+//        path.fill()
+//        path.move(to: CGPoint(x: animationView.frame.maxX, y: animationView.frame.minY))
+//        path.addLine(to: CGPoint(x: animationView.frame.minX, y: animationView.frame.maxY))
+//        path.lineWidth = 2.0
+        
+        let lineLayer = CAShapeLayer()
+        lineLayer.fillColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0)
+        lineLayer.strokeColor = CGColor(red:0.6,green:0.9,blue:0.6,alpha:1)
+        lineLayer.lineWidth = 7
+        lineLayer.path = path.cgPath
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 1.5
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        animation.isRemovedOnCompletion = true
+        
+//        view.layer.addSublayer(lineLayer)
+        lineLayer.add(animation, forKey: nil)
+        graphView.backgroundColor = .gray
+        graphView.layer.addSublayer(lineLayer)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        print("viewDidDisappear")
+//        animationView.removeFromSuperview()
     }
     
     // 画面右上のリセットボタンの処理
@@ -125,6 +166,22 @@ class CustomTableViewController: UIViewController, UITableViewDelegate, UITableV
         cell.settingContents(indexPath: indexPath, csvArray: csvArray)
         
         return cell
+    }
+    
+    var selectedCellNumber: Int = 0
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCellNumber = indexPath.row
+        print("selectedCellNumber: \(selectedCellNumber)")
+        performSegue(withIdentifier: "toDetailViewSegue", sender: nil)
+    }
+    
+    var quizArray: [String] = []
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailViewSegue" {
+            quizArray = csvArray[selectedCellNumber].components(separatedBy: ",")
+            print("quizArray: \(quizArray)")
+        }
     }
     
 //    // CSVを読み込むメソッド

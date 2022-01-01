@@ -86,7 +86,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="answerRecord" destination="LSS-OE-GNA" id="lXX-dF-8RB"/>
-                <outlet property="contentView" destination="H2p-sc-9uM" id="fI0-oL-TDA"/>
                 <outlet property="mainTableImage" destination="uLa-mO-X9a" id="v1z-rq-GZk"/>
                 <outlet property="mainTableLabel" destination="7oG-3H-EDJ" id="PiU-ha-alx"/>
                 <outlet property="quizText" destination="5Tb-Wo-Cbp" id="3jF-vv-bFh"/>
@@ -96,7 +95,7 @@
     </objects>
     <resources>
         <namedColor name="mainColor">
-            <color red="0.5" green="0.88099998235702515" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.3970000147819519" green="0.88200002908706665" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColorLight">
             <color red="0.91399997472763062" green="1" blue="0.95200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

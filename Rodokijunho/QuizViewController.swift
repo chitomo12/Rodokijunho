@@ -26,17 +26,21 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var judgeView: UIView!
     @IBOutlet weak var judgeImage: UIImageView!
+    @IBOutlet weak var judgeText: UILabel!
+    @IBOutlet weak var correctAnswer: UILabel!
     @IBOutlet weak var explainText: UITextView!
     
     @IBOutlet weak var toNextQuizButton: UIButton!
     @IBAction func toNextQuizButtonAction(_ sender: Any) {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.answerButton1.isHidden = true
+            self.answerButton2.isHidden = true
+            self.judgeView.layer.opacity = 0
             self.quizNumberAndText.center.x += 0.01
         }, completion: { _ in
             self.nextQuiz()
         })
     }
-    @IBOutlet weak var judgeText: UILabel!
     
     // button
     let buttonTextAttributes: [NSAttributedString.Key: Any] = [
@@ -81,7 +85,7 @@ class QuizViewController: UIViewController {
             self.judgeImage.image = UIImage(systemName: "xmark")
             self.judgeText.text = "不正解！"
         }
-        
+        self.correctAnswer.text = "正解は「\(quizArray[ Int(quizArray[2])! + 2 ])」"
         self.explainText.text = quizArray[6]
         
         // 最後の問題の場合、「次の問題へ」を「結果画面へ」に変える
@@ -93,15 +97,14 @@ class QuizViewController: UIViewController {
             self.toNextQuizButton.setAttributedTitle(NSAttributedString(string: "結果画面へ", attributes: nextButtonTextAttributes),
                                                      for: .normal)
         }
-        // 判定Viewを表示する
+        
+        // アニメーション付きで判定Viewを表示する
         self.judgeImage.frame = CGRect(x: 40, y: 40, width: 1, height: 1)
+        self.judgeView.layer.opacity = 1
         self.judgeView.isHidden = false
-//        UIView.animate(withDuration: 0.2,
-//                       animations: {
-//            self.judgeImage.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-//        })
         UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
             self.judgeImage.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+            self.judgeView.center.y += 0.01
         }, completion: nil)
     }
     
@@ -159,7 +162,10 @@ class QuizViewController: UIViewController {
                 UIView.animate(withDuration: 0.3, delay: 0.5, options: [.curveEaseInOut], animations: {
                     self.quizNumberAndText.center.x -= 100
                     self.quizNumberAndText.layer.opacity = 1.0
-                }, completion: nil )
+                }, completion: { _ in
+                    self.answerButton1.isHidden = false
+                    self.answerButton2.isHidden = false
+                } )
             })
         } else if count >= csvArray.count {
             // 結果画面に遷移

@@ -25,6 +25,7 @@ class ScoreViewController: UIViewController {
     
     @IBAction func toTitleButtonAction(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     /*

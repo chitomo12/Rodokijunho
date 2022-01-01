@@ -8,8 +8,6 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var cellView: UIView!
     
     @IBOutlet weak var mainTableLabel: UILabel!
     @IBOutlet weak var quizText: UILabel!
@@ -30,18 +28,20 @@ class MainTableViewCell: UITableViewCell {
     
     func settingContents(indexPath: IndexPath, csvArray: [String]) {
         let quizArray = csvArray[indexPath.row].components(separatedBy: ",")
-//        self.mainTableLabel.text = "Question: \(String(indexPath.row))"
         self.mainTableLabel.text = "\(quizArray[5])"
         self.quizText.text = "\(quizArray[1])"
         if UserDefaults.standard.bool(forKey: "q\(indexPath.row + 1)_answeredCorrectly") == true {
-//            print("load: q\(indexPath.row)_answeredCorrectly == true")
             self.mainTableImage.image = UIImage(systemName: "circle")
             self.answerRecord.text = "正解"
         } else {
-//            print("load: q\(indexPath.row)_answeredCorrectly == false")
             self.mainTableImage.image = UIImage(systemName: "xmark")
             self.answerRecord.text = "不正解"
         }
+        
+//        // タップジェスチャを追加
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: rightAndLeft, action: #selector(segueToDetailView))
+//        self.rightAndLeft.addGestureRecognizer(tapGestureRecognizer)
     }
     
+
 }
