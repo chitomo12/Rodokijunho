@@ -10,7 +10,8 @@ import UIKit
 class ScoreViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
-    
+    @IBOutlet weak var resultComment: UILabel!
+
     var score: Int = 0
     var numberOfQuiz: Int = 0
 
@@ -21,6 +22,14 @@ class ScoreViewController: UIViewController {
         self.scoreLabel.text = "\(score)点 / \(numberOfQuiz)点"
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        if Float(score) / Float(numberOfQuiz) == 1 {
+            self.resultComment.text = "完璧です！その知見を周りに伝授しましょう！"
+        } else if Float(score) / Float(numberOfQuiz) >= 0.5 {
+            self.resultComment.text = "よく勉強してます！素晴らしい！💮"
+        } else {
+            self.resultComment.text = "ちょっと社会に出るには心配かも…💦"
+        }
     }
     
     @IBAction func toTitleButtonAction(_ sender: Any) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class QuizViewController: UIViewController {
     
@@ -17,7 +18,10 @@ class QuizViewController: UIViewController {
     var count = 1
     // 正解数をカウント
     var correctCount = 0
+    // 一回のプレイの出題数
+    var totalQuizNumberForOneGame = 3
     
+    @IBOutlet weak var currentNumberInAll: UILabel!
     @IBOutlet weak var quizNumber: UILabel!
     @IBOutlet weak var quizText: UITextView!
     @IBOutlet weak var quizNumberAndText: UIView!
@@ -31,10 +35,15 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var explainText: UITextView!
     
     @IBOutlet weak var toNextQuizButton: UIButton!
+    
+    let db = Firestore.firestore()
+    var numberOfCorrectAnswer: Int = 0
+    var numberOfIncorrectAnswer: Int = 0
+    
     @IBAction func toNextQuizButtonAction(_ sender: Any) {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut], animations: {
-            self.answerButton1.isHidden = true
-            self.answerButton2.isHidden = true
+            self.answerButton1.layer.opacity = 0.0
+            self.answerButton2.layer.opacity = 0.0
             self.judgeView.layer.opacity = 0
             self.quizNumberAndText.center.x += 0.01
         }, completion: { _ in
@@ -54,6 +63,8 @@ class QuizViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         csvArray = loadCSV(fileName: "quiz1")
+        // csvを読み込み後、正答しなかった問題を前に持ってくる
+        
         quizArray = csvArray[count - 1].components(separatedBy: ",")
         quizNumber.text = "第\(String(count))問"
         quizText.text = quizArray[1]
@@ -68,6 +79,11 @@ class QuizViewController: UIViewController {
             for: .normal
         )
         self.judgeView.isHidden = true
+        
+        // Firestoreから回答数を取得する
+        (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer) = getAnswerRecord(quizNumber: Int(quizArray[0])!)
+        
+        self.currentNumberInAll.text = "1 ／ \(totalQuizNumberForOneGame)"
     }
     
     // 回答ボタンを押した後の処理
@@ -79,20 +95,28 @@ class QuizViewController: UIViewController {
             self.judgeImage.image = UIImage(systemName: "circle")?.withTintColor(UIColor(named: "mainColor")!)
             self.judgeText.text = "正解！"
             self.correctCount += 1
+            // Firestoreのデータを更新
+            db.collection("test").document("records").setData([
+                "q\(quizArray[0])_answeredCorrectly" : self.numberOfCorrectAnswer + 1
+            ], merge: true)
         } else {
             print("不正解")
             UserDefaults.standard.set(false, forKey: "q\(quizArray[0])_answeredCorrectly")
             self.judgeImage.image = UIImage(systemName: "xmark")
             self.judgeText.text = "不正解！"
+            // Firestoreのデータを更新
+            db.collection("test").document("records").setData([
+                "q\(quizArray[0])_answeredIncorrectly" : self.numberOfIncorrectAnswer + 1
+            ], merge: true)
         }
         self.correctAnswer.text = "正解は「\(quizArray[ Int(quizArray[2])! + 2 ])」"
         self.explainText.text = quizArray[6]
         
         // 最後の問題の場合、「次の問題へ」を「結果画面へ」に変える
-        if count >= csvArray.count {
+        if count >= totalQuizNumberForOneGame {
             let nextButtonTextAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 20, weight: .bold),
-                .foregroundColor: UIColor(named:"mainColor"),
+                .foregroundColor: UIColor(named:"mainColor")!,
             ]
             self.toNextQuizButton.setAttributedTitle(NSAttributedString(string: "結果画面へ", attributes: nextButtonTextAttributes),
                                                      for: .normal)
@@ -113,36 +137,58 @@ class QuizViewController: UIViewController {
         let csvBundle = Bundle.main.path(forResource: fileName, ofType: "csv")!
         do {
             let csvData = try String(contentsOfFile: csvBundle, encoding: String.Encoding.utf8)
-            print("csvData: \(csvData)")
             let lineChange = csvData.replacingOccurrences(of: "\r", with: "\n")
-            print("lineChange: \(lineChange)")
             // Stringを元に、String型のArrayを作る
             csvArray = lineChange.components(separatedBy: "\n")
             // ヘッダー行を削除する
             csvArray.removeFirst()
-            // 順番をランダムにする
-            csvArray.shuffle()
             // XCodeの仕様上、csvをエディタで編集すると最後に余分な行ができるので削除する
             csvArray = csvArray.filter{ !$0.isEmpty }
+            // 正答しなかった問題を前に持ってくる
+            var arrayForSort: [ArrayForSort] = []
+            for i in 1...csvArray.count {
+                arrayForSort.append(ArrayForSort(quizNumber: i,
+                                                 quizArrayRowString: csvArray[i-1],
+                                                 answeredCorrectly: UserDefaults.standard.bool(forKey: "q\(i)_answeredCorrectly") ? 1 : 0))
+            }
+            // 順番をランダムにする
+            arrayForSort.shuffle()
+            arrayForSort.sort(by: {$0.answeredCorrectly < $1.answeredCorrectly})
+            for i in 0..<csvArray.count {
+                csvArray[i] = arrayForSort[i].quizArrayRowString
+            }
         } catch {
-            print("エラー")
+            print("Error: check the 'func loadCSV(fileName: String) -> [String] ~'")
         }
         return csvArray
     }
     
-    // 次の問題に進む
+    struct ArrayForSort {
+        var quizNumber: Int
+        var quizArrayRowString: String
+        var answeredCorrectly: Int
+    }
+    
+    // 次の問題に進むメソッド
     func nextQuiz(){
         
         judgeView.isHidden = true
         
-        if count < csvArray.count {
+        if count < totalQuizNumberForOneGame {
             count += 1
             quizArray = csvArray[count - 1].components(separatedBy: ",")
+            
+            // Firestoreから過去の回答数記録を取得する
+            (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer) = getAnswerRecord(quizNumber: Int(quizArray[0])!)
+            
+            // アニメーション付きで前の問題を隠す
             UIView.animate(withDuration: 0.3, delay: 0.1, options: [], animations: {
                 self.quizNumberAndText.center.x -= 100
                 self.quizNumberAndText.layer.opacity = 0.0
             }, completion: { _ in
                 // ビューのテキストを更新
+                self.currentNumberInAll.text = "\(self.count) ／ \(self.totalQuizNumberForOneGame)"
+
                 self.quizNumber.text = "第\(String(self.count))問"
                 self.quizText.text = self.quizArray[1]
                 
@@ -162,12 +208,13 @@ class QuizViewController: UIViewController {
                 UIView.animate(withDuration: 0.3, delay: 0.5, options: [.curveEaseInOut], animations: {
                     self.quizNumberAndText.center.x -= 100
                     self.quizNumberAndText.layer.opacity = 1.0
+                    self.answerButton1.layer.opacity = 1.0
+                    self.answerButton2.layer.opacity = 1.0
                 }, completion: { _ in
-                    self.answerButton1.isHidden = false
-                    self.answerButton2.isHidden = false
+//                    self.answerButton2.isHidden = false
                 } )
             })
-        } else if count >= csvArray.count {
+        } else if count >= totalQuizNumberForOneGame {
             // 結果画面に遷移
             print("結果画面に遷移します")
             performSegue(withIdentifier: "toResultSegue", sender: nil)
@@ -179,8 +226,30 @@ class QuizViewController: UIViewController {
             print("結果を表示します")
             let nextView = segue.destination as! ScoreViewController
             nextView.score = correctCount
-            nextView.numberOfQuiz = csvArray.count
+            nextView.numberOfQuiz = totalQuizNumberForOneGame
         }
+    }
+    
+    func getAnswerRecord(quizNumber: Int) -> (Int, Int) {
+        db.collection("test").document("records").getDocument { docSnapshot, err in
+            if let error = err {
+                print("エラー：\(error)")
+            } else {
+                if docSnapshot!.get("q\(quizNumber)_answeredCorrectly") != nil {
+                    self.numberOfCorrectAnswer = docSnapshot!.get("q\(quizNumber)_answeredCorrectly") as! Int
+                    print("self.numberOfCorrectAnswer: \(self.numberOfCorrectAnswer)")
+                } else {
+                    print("docSnapshot!.get(\"q\(quizNumber)_answeredCorrectly\")がnilです")
+                }
+                if docSnapshot!.get("q\(quizNumber)_answeredIncorrectly") != nil {
+                    self.numberOfIncorrectAnswer = docSnapshot!.get("q\(quizNumber)_answeredIncorrectly") as! Int
+                    print("self.numberOfCorrectAnswer: \(self.numberOfIncorrectAnswer)")
+                } else {
+                    print("docSnapshot!.get(\"q\(quizNumber)_answeredIncorrectly\")がnilです")
+                }
+            }
+        }
+        return (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer)
     }
     
     /*

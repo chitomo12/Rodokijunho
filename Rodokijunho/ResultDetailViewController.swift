@@ -9,6 +9,8 @@ import UIKit
 
 class ResultDetailViewController: UIViewController {
     
+    var quizArray: [String] = []
+    
     var questionNumberText: String = ""
     var questionGenreText: String = ""
     var questionTextString: String = ""
@@ -19,19 +21,20 @@ class ResultDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(named: "mainColorLight")!
         
-        questionNumberText = "1"
-        questionGenreText = "基本問題（１）"
-        questionTextString = "週一勤務の労働者には有給休暇を付与する必要はない。⚪︎か×か。"
-        correctAnswerText = "×"
-        explainLabelText = "勤務日数が少ないアルバイトであっても、通常の労働者の勤務日数とその有給日数との比率に応じて有給が発生します。週一の場合は入社から半年後に二日、一年半年後に二日の有給が発生します。"
+        print("quizArray: \(quizArray)")
+        questionNumberText = quizArray[0]
+        questionGenreText = quizArray[5]
+        questionTextString = quizArray[1]
+        correctAnswerText = quizArray[Int(quizArray[2])! + 2]
+        explainLabelText = quizArray[6]
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        let scrollView = UIScrollView(frame: CGRect(x: 10, y: 10, width: view.frame.size.width - 20, height: view.frame.size.height - 20))
+        let scrollView = UIScrollView(frame: CGRect(x: 20, y: 20, width: view.frame.size.width - 40, height: view.frame.size.height - 40))
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         
@@ -73,7 +76,11 @@ class ResultDetailViewController: UIViewController {
                                     height: questionText.frame.size.height)
         contentView.addSubview(questionText)
         
-        let seikaiTextLabel = UILabel(frame: CGRect(x: centerX - 100, y: questionText.frame.maxY + 50, width: 200, height: 30))
+        let backGreenView = UIView(frame: CGRect(x: centerX - 110, y: questionText.frame.maxY + 100, width: 220, height: 100))
+        backGreenView.backgroundColor = UIColor(named: "mainColorLight")
+        contentView.addSubview(backGreenView)
+        
+        let seikaiTextLabel = UILabel(frame: CGRect(x: centerX - 100, y: backGreenView.frame.minY + 20, width: 200, height: 30))
         seikaiTextLabel.text = "正解"
         seikaiTextLabel.textColor = .gray
         seikaiTextLabel.font = UIFont.systemFont(ofSize: 22, weight: .bold)
@@ -104,6 +111,12 @@ class ResultDetailViewController: UIViewController {
                              height: explainLabel.frame.size.height)
         contentView.addSubview(explainLabel)
         
+        // explainLabelの高さに合わせて背景のサイズを変更
+        backGreenView.frame = CGRect(x: centerX - 170,
+                                     y: backGreenView.frame.minY,
+                                     width: 340,
+                                     height: explainLabel.frame.maxY - backGreenView.frame.minY + 20)
+        
         // 下位ビューの高さに合わせてcontentViewのframeサイズを更新
         contentView.frame = CGRect(x: 0,
                                    y: 0,
@@ -113,6 +126,7 @@ class ResultDetailViewController: UIViewController {
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = UIColor(named: "mainColorLight")?.withAlphaComponent(1.1)
         scrollView.layer.cornerRadius = 50
     }
     

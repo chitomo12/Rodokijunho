@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+//import RxSwift
+//import RxCocoa
+
 
 class CircleGraphView: UIView {
     override func draw(_ rect: CGRect) {
@@ -35,16 +39,6 @@ class CircleGraphView: UIView {
                                   clockwise: true)
         UIColor(red:0.6,green:0.9,blue:0.6,alpha:1).setStroke()
         circle.lineWidth = 7
-//        circle.stroke()
-        
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = NSTextAlignment.center
-//
-//        "2問/3問\n正解".draw(at: CGPoint(x: 15, y: 40), withAttributes: [
-//            .paragraphStyle: style,
-//            NSAttributedString.Key.foregroundColor: UIColor.gray,
-//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20),
-//        ])
     }
 }
 
@@ -60,10 +54,11 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
     var quizNumber: Int = 0
     var solvedNumber: Int = 0
     
+    var correctlyAnsweredRateDictionary: [String: Int] = ["key": 0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        csvArray = loadCSV(fileName: "quiz1")
         csvArray = loadCSVArray(fileName: "quiz1")
         
         tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
@@ -86,22 +81,35 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
         graphView.addSubview(seikaisuLabel)
         
         createCircle()
+        
+        // Firebaseの処理
+        let db = Firestore.firestore()
+        db.collection("test").document("records").getDocument { [weak self] docSnapshot, err in
+            // 正答率を個別セル用のプロパティに格納する
+            for i in 1...self!.quizNumber {
+                if docSnapshot?.get("q\(i)_answeredCorrectly") != nil && docSnapshot?.get("q\(i)_answeredIncorrectly") != nil {
+                    self!.correctlyAnsweredRateDictionary["q\(i)"] = Int(round((docSnapshot?.get("q\(i)_answeredCorrectly") as! Float) * 100 / ((docSnapshot?.get("q\(i)_answeredCorrectly") as! Float) + (docSnapshot?.get("q\(i)_answeredIncorrectly") as! Float))))
+                } else if docSnapshot?.get("q\(i)_answeredCorrectly") != nil && docSnapshot?.get("q\(i)_answeredIncorrectly") == nil {
+                    // 正解回答数が1以上かつ不正解回答数がゼロ=nilの場合は正答率を100%にする
+                    self!.correctlyAnsweredRateDictionary["q\(i)"] = 100
+                } else {
+                    // 正解回答数がゼロ=nilの場合は正答率を0%にする
+                    self!.correctlyAnsweredRateDictionary["q\(i)"] = 0
+                }
+                // データを個別セル用のプロパティに格納したら随時セルを更新
+                self!.tableView.reloadRows(at: [IndexPath(row: i - 1, section: 0)], with: .fade)
+            }
+        }
     }
     
+    // 円グラフのアニメーション描画
     func createCircle() {
-        
-        // animationTest
-//        let path = UIBezierPath()
         let path = UIBezierPath(arcCenter: CGPoint(x: 60, y: 60), radius: 50, startAngle: CGFloat(Double.pi) * (-0.5), endAngle: CGFloat(Double.pi) * (2.0 * ( CGFloat(solvedNumber) / CGFloat(quizNumber) ) - 0.5), clockwise: true)
         UIColor.clear.setFill()
-//        path.fill()
-//        path.move(to: CGPoint(x: animationView.frame.maxX, y: animationView.frame.minY))
-//        path.addLine(to: CGPoint(x: animationView.frame.minX, y: animationView.frame.maxY))
-//        path.lineWidth = 2.0
         
         let lineLayer = CAShapeLayer()
         lineLayer.fillColor = CGColor(red: 1, green: 1, blue: 1, alpha: 0)
-        lineLayer.strokeColor = CGColor(red:0.6,green:0.9,blue:0.6,alpha:1)
+        lineLayer.strokeColor = CGColor(red:0.6,green:0.9,blue:0.4,alpha:1.0)
         lineLayer.lineWidth = 7
         lineLayer.path = path.cgPath
         
@@ -113,7 +121,6 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = true
         
-//        view.layer.addSublayer(lineLayer)
         lineLayer.add(animation, forKey: nil)
         graphView.backgroundColor = .gray
         graphView.layer.addSublayer(lineLayer)
@@ -122,7 +129,6 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         print("viewDidDisappear")
-//        animationView.removeFromSuperview()
     }
     
     // 画面右上のリセットボタンの処理
@@ -157,19 +163,34 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
         present(alert, animated: true, completion: nil)
     }
     
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (csvArray.count)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // tableViewの各セルに表示するデータを生成し、渡す
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
-        cell.settingContents(indexPath: indexPath, csvArray: csvArray)
+//        let correctlyAnsweredRate: Int = returnCorrectlyAnsweredRate(quizNumber: indexPath + 1)
+//        cell.settingContents(indexPath: indexPath, csvArray: csvArray)
         
+        
+        var correctlyAnsweredRate = 0
+        cell.settingContents(indexPath: indexPath, csvArray: csvArray, statisticData: correctlyAnsweredRateDictionary["q\(indexPath.row + 1)"] ?? 0)
+
         return cell
     }
     
-    var selectedCellNumber: Int = 0
     
+    // 未完成
+    func returnCorrectlyAnsweredRate(quizNumber: Int) -> Int {
+        let rate = 50
+        return rate
+    }
+    
+    var selectedCellNumber: Int = 0
+    // セグエ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCellNumber = indexPath.row
         print("selectedCellNumber: \(selectedCellNumber)")
@@ -180,7 +201,8 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailViewSegue" {
             quizArray = csvArray[selectedCellNumber].components(separatedBy: ",")
-            print("quizArray: \(quizArray)")
+            let nextView = segue.destination as! ResultDetailViewController
+            nextView.quizArray = quizArray
         }
     }
     
@@ -215,3 +237,43 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
     */
 
 }
+
+
+//struct Item {
+//    let name: String
+//    let color: UIColor
+//}
+//
+//final class MyDataSource: NSObject, UITableViewDataSource, RxTableViewDataSourceType {
+//    typealias Element = [Item]
+//    var items = [Item]()
+//    var csvArray = loadCSVArray(fileName: "quiz1")
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return items.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        // tableViewの各セルに表示するデータを生成し、渡す
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
+////        let correctlyAnsweredRate: Int = returnCorrectlyAnsweredRate(quizNumber: indexPath + 1)
+//        cell.settingContents(indexPath: indexPath, csvArray: csvArray)
+////        cell.settingContents(indexPath: indexPath, csvArray: csvArray, statisticData: correctlyAnsweredRate)
+//
+////        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell",
+////                                                 for: indexPath) as! MainTableViewCell
+////        let item = items[indexPath.row]
+////        cell.configure(item: item)
+//        return cell
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, observedEvent: Event<[Item]>) {
+//        Binder(self) { dataSource, element in
+//            guard let items = element.element else { return }
+//            dataSource.items = items
+//            tableView.reloadData()
+//        }
+//        .onNext(observedEvent)
+//    }
+//}

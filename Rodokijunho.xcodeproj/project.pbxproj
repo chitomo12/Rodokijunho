@@ -33,6 +33,11 @@
 		13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */; };
 		13A96C502779B25600A9D196 /* QFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4F2779B25600A9D196 /* QFourViewController.swift */; };
 		13A96C522779B57800A9D196 /* QFiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C512779B57800A9D196 /* QFiveViewController.swift */; };
+		13E517EE2781507800852C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13E517ED2781507800852C6B /* GoogleService-Info.plist */; };
+		13E517F1278150FA00852C6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F0278150FA00852C6B /* FirebaseAnalytics */; };
+		13E517F3278150FA00852C6B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F2278150FA00852C6B /* FirebaseFirestore */; };
+		13E517F5278150FA00852C6B /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F4278150FA00852C6B /* FirebaseFirestoreSwift-Beta */; };
+		D4FF8BA5F5624F1620CEA2B5 /* Pods_Rodokijunho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,10 @@
 		13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QThreeViewController.swift; sourceTree = "<group>"; };
 		13A96C4F2779B25600A9D196 /* QFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFourViewController.swift; sourceTree = "<group>"; };
 		13A96C512779B57800A9D196 /* QFiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFiveViewController.swift; sourceTree = "<group>"; };
+		13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rodokijunho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E517ED2781507800852C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60FC41D9DB1F4CD0B9D821C4 /* Pods-Rodokijunho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rodokijunho.debug.xcconfig"; path = "Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho.debug.xcconfig"; sourceTree = "<group>"; };
+		8C8809C945E6C740F50B9916 /* Pods-Rodokijunho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rodokijunho.release.xcconfig"; path = "Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E517F5278150FA00852C6B /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				13E517F1278150FA00852C6B /* FirebaseAnalytics in Frameworks */,
+				13E517F3278150FA00852C6B /* FirebaseFirestore in Frameworks */,
+				D4FF8BA5F5624F1620CEA2B5 /* Pods_Rodokijunho.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +96,8 @@
 				135F5E072779FB1D004AD5FB /* ReadMe.md */,
 				132F017D2778611F00A81796 /* Rodokijunho */,
 				132F017C2778611F00A81796 /* Products */,
+				97F04447FEDE8C6E8029DAE4 /* Pods */,
+				2FCFA8A569F3A2ECEB236D96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +138,27 @@
 				135F5E012779F0A5004AD5FB /* alert1.mp3 */,
 				135F5E052779F32E004AD5FB /* alert2.mp3 */,
 				132B3AAB277EB52200910520 /* ScoreViewController.swift */,
+				13E517ED2781507800852C6B /* GoogleService-Info.plist */,
 			);
 			path = Rodokijunho;
+			sourceTree = "<group>";
+		};
+		2FCFA8A569F3A2ECEB236D96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97F04447FEDE8C6E8029DAE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60FC41D9DB1F4CD0B9D821C4 /* Pods-Rodokijunho.debug.xcconfig */,
+				8C8809C945E6C740F50B9916 /* Pods-Rodokijunho.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,15 +168,22 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 132F018F2778612100A81796 /* Build configuration list for PBXNativeTarget "Rodokijunho" */;
 			buildPhases = (
+				69798A44DF7E4D8E0B386875 /* [CP] Check Pods Manifest.lock */,
 				132F01772778611F00A81796 /* Sources */,
 				132F01782778611F00A81796 /* Frameworks */,
 				132F01792778611F00A81796 /* Resources */,
+				CF7B2CCE82D349EC61C1A9A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Rodokijunho;
+			packageProductDependencies = (
+				13E517F0278150FA00852C6B /* FirebaseAnalytics */,
+				13E517F2278150FA00852C6B /* FirebaseFirestore */,
+				13E517F4278150FA00852C6B /* FirebaseFirestoreSwift-Beta */,
+			);
 			productName = Rodokijunho;
 			productReference = 132F017B2778611F00A81796 /* Rodokijunho.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +212,9 @@
 				Base,
 			);
 			mainGroup = 132F01722778611F00A81796;
+			packageReferences = (
+				13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+			);
 			productRefGroup = 132F017C2778611F00A81796 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -191,12 +235,55 @@
 				13225996277CB7F10056CF36 /* quiz1.csv in Resources */,
 				135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */,
 				132F01882778612100A81796 /* Assets.xcassets in Resources */,
+				13E517EE2781507800852C6B /* GoogleService-Info.plist in Resources */,
 				13448EFC277DB10600E5F678 /* MainTableViewCell.xib in Resources */,
 				132F01862778611F00A81796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69798A44DF7E4D8E0B386875 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rodokijunho-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF7B2CCE82D349EC61C1A9A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		132F01772778611F00A81796 /* Sources */ = {
@@ -364,6 +451,7 @@
 		};
 		132F01902778612100A81796 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60FC41D9DB1F4CD0B9D821C4 /* Pods-Rodokijunho.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -394,6 +482,7 @@
 		};
 		132F01912778612100A81796 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C8809C945E6C740F50B9916 /* Pods-Rodokijunho.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +533,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13E517F0278150FA00852C6B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseAnalytics;
+		};
+		13E517F2278150FA00852C6B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseFirestore;
+		};
+		13E517F4278150FA00852C6B /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 132F01732778611F00A81796 /* Project object */;
 }
