@@ -7,4 +7,17 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:ScreenShot"
+      name = "ScreenShot">
+      <FileRef
+         location = "group:Simulator Screen Shot - iPhone 12 Pro Max - 2022-01-08 at 19.00.13.png">
+      </FileRef>
+      <FileRef
+         location = "group:Simulator Screen Shot - iPhone 12 Pro Max - 2022-01-08 at 19.06.33.png">
+      </FileRef>
+      <FileRef
+         location = "group:Simulator Screen Shot - iPhone 12 Pro Max - 2022-01-08 at 19.06.18.png">
+      </FileRef>
+   </Group>
 </Workspace>

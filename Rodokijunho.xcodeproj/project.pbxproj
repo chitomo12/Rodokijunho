@@ -106,6 +106,7 @@
 				135F5E072779FB1D004AD5FB /* ReadMe.md */,
 				135BF6E02789924B0085ACAD /* .gitignore */,
 				132F017D2778611F00A81796 /* Rodokijunho */,
+				135BF6E22789BA7E0085ACAD /* ScreenShots */,
 				132F017C2778611F00A81796 /* Products */,
 				97F04447FEDE8C6E8029DAE4 /* Pods */,
 				2FCFA8A569F3A2ECEB236D96 /* Frameworks */,
@@ -156,6 +157,13 @@
 				13E517ED2781507800852C6B /* GoogleService-Info.plist */,
 			);
 			path = Rodokijunho;
+			sourceTree = "<group>";
+		};
+		135BF6E22789BA7E0085ACAD /* ScreenShots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ScreenShots;
 			sourceTree = "<group>";
 		};
 		2FCFA8A569F3A2ECEB236D96 /* Frameworks */ = {
