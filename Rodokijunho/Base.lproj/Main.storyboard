@@ -33,7 +33,7 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="qfn-ZK-MRW" kind="show" id="aLm-be-pyh"/>
+                                    <action selector="startChecking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dN3-zl-Xvc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euL-7r-mvI">
@@ -48,7 +48,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startChecking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hjz-3d-bMH"/>
-                                    <segue destination="qfn-ZK-MRW" kind="show" id="eGU-OB-zY3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KH0-n3-p42">
@@ -57,19 +56,22 @@
                                     <constraint firstAttribute="height" constant="50" id="6xL-ie-hXU"/>
                                     <constraint firstAttribute="width" constant="50" id="fMf-LE-6k5"/>
                                 </constraints>
+                                <color key="tintColor" name="mainColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="pencil.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="50" scale="default"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startChecking:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ANQ-Es-EVx"/>
                                     <action selector="startQuizButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vuo-sF-yhZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4U-TF-Kaj">
-                                <rect key="frame" x="152" y="652.5" width="110" height="31"/>
+                                <rect key="frame" x="143" y="652.5" width="128" height="34.5"/>
+                                <color key="tintColor" name="mainColorDark"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="クイズに挑戦"/>
+                                <buttonConfiguration key="configuration" style="plain" title="クイズに挑戦">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="startQuizButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6AB-3x-WI1"/>
                                 </connections>
@@ -83,9 +85,12 @@ All right reserved.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-3Q-tbE">
-                                <rect key="frame" x="20" y="713.5" width="374" height="31"/>
+                                <rect key="frame" x="20" y="717" width="374" height="37"/>
+                                <color key="tintColor" name="mainColorDark"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="成績を見る"/>
+                                <buttonConfiguration key="configuration" style="plain" title="成績を見る">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="ysJ-f9-fSH" kind="show" id="dbU-RZ-jzg"/>
                                 </connections>
@@ -116,14 +121,15 @@ All right reserved.</string>
                     </view>
                     <navigationItem key="navigationItem" id="hpj-0v-CwY"/>
                     <connections>
-                        <outlet property="startButton" destination="euL-7r-mvI" id="ETb-oq-m15"/>
-                        <outlet property="startQuizButtonOutlet" destination="KH0-n3-p42" id="ogO-Zp-mNV"/>
+                        <outlet property="startCheckingButton" destination="euL-7r-mvI" id="KDU-SI-xFg"/>
+                        <outlet property="startQuizButton" destination="KH0-n3-p42" id="ogO-Zp-mNV"/>
                         <segue destination="zzW-IC-02F" kind="show" identifier="toQuizViewSegue" id="qth-uE-0fs"/>
+                        <segue destination="qfn-ZK-MRW" kind="show" identifier="toCheckingMode" id="E0e-xd-tcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982.60869565217399" y="439.95535714285711"/>
+            <point key="canvasLocation" x="196" y="440"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="Ow6-gD-cgT">
@@ -188,6 +194,7 @@ All right reserved.</string>
                                         <rect key="frame" x="30" y="82" width="354" height="219"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="ZYf-Wk-8hW"/>
                                             <constraint firstAttribute="height" constant="219" id="fuH-lo-nbG"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -200,13 +207,13 @@ All right reserved.</string>
                                 <constraints>
                                     <constraint firstItem="sa1-vt-pdD" firstAttribute="centerX" secondItem="ucU-n8-6xp" secondAttribute="centerX" id="5dq-aS-QsK"/>
                                     <constraint firstAttribute="bottom" secondItem="sa1-vt-pdD" secondAttribute="bottom" constant="20" id="FLC-xR-Tv5"/>
-                                    <constraint firstItem="sa1-vt-pdD" firstAttribute="leading" secondItem="ucU-n8-6xp" secondAttribute="leading" constant="30" id="IOb-Od-N7M"/>
+                                    <constraint firstItem="sa1-vt-pdD" firstAttribute="leading" secondItem="ucU-n8-6xp" secondAttribute="leading" priority="750" constant="30" id="IOb-Od-N7M"/>
                                     <constraint firstItem="sa1-vt-pdD" firstAttribute="top" secondItem="hEr-gw-4Z4" secondAttribute="bottom" constant="30" id="pAJ-ku-dCV"/>
                                     <constraint firstItem="sa1-vt-pdD" firstAttribute="centerX" secondItem="hEr-gw-4Z4" secondAttribute="centerX" id="s2k-YZ-zDB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Tb-C2-2xv">
-                                <rect key="frame" x="57" y="443" width="300" height="370"/>
+                                <rect key="frame" x="57" y="423" width="300" height="370"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MG2-xO-e3r">
                                         <rect key="frame" x="110" y="20" width="80" height="80"/>
@@ -291,16 +298,17 @@ All right reserved.</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="centerX" secondItem="eA6-yZ-Z9m" secondAttribute="centerX" id="10K-PF-uL3"/>
+                            <constraint firstItem="5Tb-C2-2xv" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="160" id="12D-mG-B9j"/>
                             <constraint firstItem="1tm-WE-bg2" firstAttribute="trailing" secondItem="4Np-bZ-Ccr" secondAttribute="trailing" constant="20" id="4te-0S-730"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="top" secondItem="ucU-n8-6xp" secondAttribute="bottom" constant="29" id="8wN-oB-g4G"/>
                             <constraint firstItem="xuR-n5-l9B" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="HwU-mL-lBl"/>
-                            <constraint firstItem="5Tb-C2-2xv" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="180" id="Isq-3t-HWa"/>
                             <constraint firstItem="xuR-n5-l9B" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="200" id="aOP-LO-mI0"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="centerY" secondItem="3d4-6b-t9K" secondAttribute="centerY" constant="100" id="bJB-jQ-gLq"/>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="top" secondItem="1tm-WE-bg2" secondAttribute="top" constant="80" id="fgw-jg-Lbg"/>
                             <constraint firstItem="5Tb-C2-2xv" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="iGQ-of-J3u"/>
                             <constraint firstItem="4Np-bZ-Ccr" firstAttribute="top" secondItem="1tm-WE-bg2" secondAttribute="top" id="nqN-qf-XA9"/>
                             <constraint firstItem="eA6-yZ-Z9m" firstAttribute="centerX" secondItem="3d4-6b-t9K" secondAttribute="centerX" id="o3z-E5-KyH"/>
+                            <constraint firstItem="4Np-bZ-Ccr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1tm-WE-bg2" secondAttribute="leading" symbolic="YES" id="t6U-Sx-gTp"/>
                             <constraint firstItem="ucU-n8-6xp" firstAttribute="leading" secondItem="1tm-WE-bg2" secondAttribute="leading" id="yVG-q3-zjZ"/>
                         </constraints>
                     </view>
@@ -854,7 +862,7 @@ All right reserved.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVg-Gu-f6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="440"/>
+            <point key="canvasLocation" x="-600" y="440"/>
         </scene>
         <!--Three View Controller-->
         <scene sceneID="FZD-51-s5B">
@@ -1208,7 +1216,6 @@ All right reserved.</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rvN-61-CC8"/>
-        <segue reference="aLm-be-pyh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.closed.circle.fill" catalog="system" width="128" height="121"/>
@@ -1218,6 +1225,9 @@ All right reserved.</string>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="mainColor">
             <color red="0.3970000147819519" green="0.88200002908706665" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainColorDark">
+            <color red="0.12300000339746475" green="0.7839999794960022" blue="0.63400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

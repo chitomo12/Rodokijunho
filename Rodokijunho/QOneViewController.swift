@@ -23,6 +23,8 @@ class QOneViewController: UIViewController {
         
         // アニメーション用のViewの準備
         prepareAnimationViews()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.blue
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

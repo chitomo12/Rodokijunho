@@ -1,0 +1,6 @@
+framework module Pods_Rodokijunho {
+  umbrella header "Pods-Rodokijunho-umbrella.h"
+
+  export *
+  module * { export * }
+}

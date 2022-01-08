@@ -15,10 +15,6 @@ class AttentionImageAndTextView: UIView{
     let imageWidth: CGFloat = 0.0
     
     override func draw(_ rect: CGRect) {
-//        drawAttentionImageAndText(x: 0, y: 0)
-//        drawAttentionImageAndText(x: 160, y: 0)
-//        drawAttentionImageAndText(x: 320, y: 0)
-//        drawAttentionImageAndText(x: 480, y: 0)
         drawAttentionImageAndText(x: 0, y: 0)
         drawAttentionImageAndText(x: screenWidth * 1 / 4, y: 0)
         drawAttentionImageAndText(x: screenWidth * 2 / 4, y: 0)

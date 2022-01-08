@@ -19,7 +19,7 @@ class QuizViewController: UIViewController {
     // 正解数をカウント
     var correctCount = 0
     // 一回のプレイの出題数
-    var totalQuizNumberForOneGame = 3
+    var totalQuizNumberForOneGame = 10
     
     @IBOutlet weak var currentNumberInAll: UILabel!
     @IBOutlet weak var quizNumber: UILabel!
@@ -51,9 +51,9 @@ class QuizViewController: UIViewController {
         })
     }
     
-    // button
+    // 回答ボタンの属性
     let buttonTextAttributes: [NSAttributedString.Key: Any] = [
-        .font: UIFont.systemFont(ofSize: 22),
+        .font: UIFont.systemFont(ofSize: 22, weight: .bold),
         .foregroundColor: UIColor.white,
     ]
     
@@ -84,6 +84,8 @@ class QuizViewController: UIViewController {
         (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer) = getAnswerRecord(quizNumber: Int(quizArray[0])!)
         
         self.currentNumberInAll.text = "1 ／ \(totalQuizNumberForOneGame)"
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "mainColorDark")
     }
     
     // 回答ボタンを押した後の処理

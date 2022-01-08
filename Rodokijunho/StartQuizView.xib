@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment version="4864" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartQuizNSObject" customModule="Rodokijunho" customModuleProvider="target">
+            <connections>
+                <outlet property="button" destination="iNJ-kY-x34" id="5hf-g1-3Hn"/>
+                <outlet property="label" destination="8HP-by-Tot" id="UF9-Kk-QOt"/>
+                <outlet property="startQuizButton" destination="Df2-Fw-fx7" id="cYd-ws-4Tl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="49" translatesAutoresizingMaskIntoConstraints="NO" id="zHn-Qd-tgc">
+                    <rect key="frame" x="0.0" y="190" width="414" height="116"/>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="97"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.book.closed.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="R4q-KJ-5Pm">
+                    <rect key="frame" x="117" y="108" width="180" height="140"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="e7s-ET-K4v"/>
+                        <constraint firstAttribute="height" constant="140" id="eWV-WI-fhG"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNJ-kY-x34">
+                    <rect key="frame" x="132" y="721" width="150" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Anb-kY-mJ3"/>
+                        <constraint firstAttribute="width" constant="150" id="BrP-dT-hWI"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="戻る" cornerStyle="capsule">
+                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df2-Fw-fx7">
+                    <rect key="frame" x="132" y="651" width="150" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="PHq-mz-sDW"/>
+                        <constraint firstAttribute="height" constant="45" id="y6O-85-Cvx"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="スタート" cornerStyle="capsule">
+                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クイズモード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HP-by-Tot">
+                    <rect key="frame" x="62" y="369" width="290" height="58"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ランダム出題の10問のクイズであなたの知識を腕試し！" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF4-kk-o9D">
+                    <rect key="frame" x="32" y="447" width="350" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="Ogm-sK-It0"/>
+                        <constraint firstAttribute="width" priority="999" constant="350" id="x0z-wx-gEB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="間違えた問題は次回プレイ時に優先的に出題されるようになります。繰り返し解いて労働基準法についての理解を深めましょう！" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB1-2W-293">
+                    <rect key="frame" x="32" y="510" width="350" height="86"/>
+                    <constraints>
+                        <constraint firstAttribute="width" priority="999" constant="350" id="JgE-4G-Quc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="mainColor"/>
+            <constraints>
+                <constraint firstItem="zHn-Qd-tgc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0ZY-B8-MmF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CF4-kk-o9D" secondAttribute="trailing" constant="20" id="3yX-7H-ReL"/>
+                <constraint firstItem="NB1-2W-293" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5Rc-rW-Orm"/>
+                <constraint firstItem="CF4-kk-o9D" firstAttribute="top" secondItem="8HP-by-Tot" secondAttribute="bottom" constant="20" id="KhV-hE-iEe"/>
+                <constraint firstItem="zHn-Qd-tgc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Npc-f3-mbq"/>
+                <constraint firstItem="8HP-by-Tot" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="OvD-lO-xS2"/>
+                <constraint firstItem="zHn-Qd-tgc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-200" id="Rbt-Tq-bjZ"/>
+                <constraint firstItem="CF4-kk-o9D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WB3-qr-MNV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NB1-2W-293" secondAttribute="trailing" priority="998" constant="20" id="Zg8-0c-T1M"/>
+                <constraint firstItem="Df2-Fw-fx7" firstAttribute="top" secondItem="NB1-2W-293" secondAttribute="bottom" constant="55" id="a2j-fa-E9C"/>
+                <constraint firstItem="iNJ-kY-x34" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="clB-T0-uj5"/>
+                <constraint firstItem="CF4-kk-o9D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="eyo-Le-jr8"/>
+                <constraint firstAttribute="trailing" secondItem="zHn-Qd-tgc" secondAttribute="trailing" id="hZD-Nj-vC3"/>
+                <constraint firstItem="iNJ-kY-x34" firstAttribute="top" secondItem="Df2-Fw-fx7" secondAttribute="bottom" constant="25" id="kEc-GD-bTx"/>
+                <constraint firstItem="R4q-KJ-5Pm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-270" id="pKO-Zm-Wmc"/>
+                <constraint firstItem="Df2-Fw-fx7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="skj-BJ-EMJ"/>
+                <constraint firstItem="R4q-KJ-5Pm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="stX-ko-JA7"/>
+                <constraint firstItem="NB1-2W-293" firstAttribute="top" secondItem="CF4-kk-o9D" secondAttribute="bottom" constant="20" id="tjF-Cj-IoV"/>
+                <constraint firstItem="8HP-by-Tot" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ulz-PJ-ads"/>
+                <constraint firstItem="NB1-2W-293" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" priority="998" constant="20" id="vt1-Qd-GzC"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="44.866071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
+        <namedColor name="mainColor">
+            <color red="0.3970000147819519" green="0.88200002908706665" blue="0.76700001955032349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

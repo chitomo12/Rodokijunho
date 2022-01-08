@@ -77,7 +77,7 @@ class ResultDetailViewController: UIViewController {
         contentView.addSubview(questionText)
         
         let backGreenView = UIView(frame: CGRect(x: centerX - 110, y: questionText.frame.maxY + 100, width: 220, height: 100))
-        backGreenView.backgroundColor = UIColor(named: "mainColorLight")
+//        backGreenView.backgroundColor = UIColor(named: "mainColorLight")
         contentView.addSubview(backGreenView)
         
         let seikaiTextLabel = UILabel(frame: CGRect(x: centerX - 100, y: backGreenView.frame.minY + 20, width: 200, height: 30))
@@ -126,7 +126,7 @@ class ResultDetailViewController: UIViewController {
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.backgroundColor = UIColor(named: "mainColorLight")?.withAlphaComponent(1.1)
+//        scrollView.backgroundColor = UIColor(named: "mainColorLight")?.withAlphaComponent(1.1)
         scrollView.layer.cornerRadius = 50
     }
     

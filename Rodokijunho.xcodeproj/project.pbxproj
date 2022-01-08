@@ -23,11 +23,16 @@
 		13448EF8277DB0B700E5F678 /* ResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13448EF7277DB0B700E5F678 /* ResultListViewController.swift */; };
 		13448EFB277DB10600E5F678 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13448EF9277DB10600E5F678 /* MainTableViewCell.swift */; };
 		13448EFC277DB10600E5F678 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13448EFA277DB10600E5F678 /* MainTableViewCell.xib */; };
+		135BF6E12789924C0085ACAD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 135BF6E02789924B0085ACAD /* .gitignore */; };
 		135F5E002779BB27004AD5FB /* LastPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */; };
 		135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E012779F0A5004AD5FB /* alert1.mp3 */; };
 		135F5E042779F13B004AD5FB /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F5E032779F13B004AD5FB /* AlertData.swift */; };
 		135F5E062779F32E004AD5FB /* alert2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E052779F32E004AD5FB /* alert2.mp3 */; };
 		135F5E082779FB1D004AD5FB /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E072779FB1D004AD5FB /* ReadMe.md */; };
+		138200D92787F55C00E531F0 /* StartCheckingNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */; };
+		138200DB2787F59000E531F0 /* StartCheckingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138200DA2787F59000E531F0 /* StartCheckingView.xib */; };
+		138C929027894C81007E8496 /* StartQuizView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A924D8278942D80065572A /* StartQuizView.xib */; };
+		13A924D7278942B00065572A /* StartQuizNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A924D6278942AF0065572A /* StartQuizNSObject.swift */; };
 		13A96C4A2779ACF000A9D196 /* AttentionImageAndTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */; };
 		13A96C4C2779AEEB00A9D196 /* QTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */; };
 		13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */; };
@@ -59,11 +64,16 @@
 		13448EF7277DB0B700E5F678 /* ResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewController.swift; sourceTree = "<group>"; };
 		13448EF9277DB10600E5F678 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		13448EFA277DB10600E5F678 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		135BF6E02789924B0085ACAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageViewController.swift; sourceTree = "<group>"; };
 		135F5E012779F0A5004AD5FB /* alert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert1.mp3; sourceTree = "<group>"; };
 		135F5E032779F13B004AD5FB /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
 		135F5E052779F32E004AD5FB /* alert2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert2.mp3; sourceTree = "<group>"; };
 		135F5E072779FB1D004AD5FB /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCheckingNSObject.swift; sourceTree = "<group>"; };
+		138200DA2787F59000E531F0 /* StartCheckingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartCheckingView.xib; sourceTree = "<group>"; };
+		13A924D6278942AF0065572A /* StartQuizNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizNSObject.swift; sourceTree = "<group>"; };
+		13A924D8278942D80065572A /* StartQuizView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartQuizView.xib; sourceTree = "<group>"; };
 		13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionImageAndTextView.swift; sourceTree = "<group>"; };
 		13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTwoViewController.swift; sourceTree = "<group>"; };
 		13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QThreeViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				135F5E072779FB1D004AD5FB /* ReadMe.md */,
+				135BF6E02789924B0085ACAD /* .gitignore */,
 				132F017D2778611F00A81796 /* Rodokijunho */,
 				132F017C2778611F00A81796 /* Products */,
 				97F04447FEDE8C6E8029DAE4 /* Pods */,
@@ -112,10 +123,14 @@
 		132F017D2778611F00A81796 /* Rodokijunho */ = {
 			isa = PBXGroup;
 			children = (
+				132F01842778611F00A81796 /* Main.storyboard */,
 				132F017E2778611F00A81796 /* AppDelegate.swift */,
 				132F01802778611F00A81796 /* SceneDelegate.swift */,
-				132F01842778611F00A81796 /* Main.storyboard */,
 				132F01822778611F00A81796 /* ViewController.swift */,
+				138200DA2787F59000E531F0 /* StartCheckingView.xib */,
+				138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */,
+				13A924D8278942D80065572A /* StartQuizView.xib */,
+				13A924D6278942AF0065572A /* StartQuizNSObject.swift */,
 				132F019227786A6500A81796 /* QOneViewController.swift */,
 				13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */,
 				13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */,
@@ -127,11 +142,11 @@
 				135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */,
 				13225997277CB9250056CF36 /* QuizViewController.swift */,
 				13448EF7277DB0B700E5F678 /* ResultListViewController.swift */,
-				132B3AAF277F5D6500910520 /* ResultDetailViewController.swift */,
-				13225995277CB7F10056CF36 /* quiz1.csv */,
-				132B3AAD277F13FB00910520 /* csvData.swift */,
 				13448EFA277DB10600E5F678 /* MainTableViewCell.xib */,
 				13448EF9277DB10600E5F678 /* MainTableViewCell.swift */,
+				132B3AAF277F5D6500910520 /* ResultDetailViewController.swift */,
+				132B3AAD277F13FB00910520 /* csvData.swift */,
+				13225995277CB7F10056CF36 /* quiz1.csv */,
 				132F01872778612100A81796 /* Assets.xcassets */,
 				132F01892778612100A81796 /* LaunchScreen.storyboard */,
 				132F018C2778612100A81796 /* Info.plist */,
@@ -157,7 +172,6 @@
 				60FC41D9DB1F4CD0B9D821C4 /* Pods-Rodokijunho.debug.xcconfig */,
 				8C8809C945E6C740F50B9916 /* Pods-Rodokijunho.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,7 +227,7 @@
 			);
 			mainGroup = 132F01722778611F00A81796;
 			packageReferences = (
-				13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+				13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 132F017C2778611F00A81796 /* Products */;
 			projectDirPath = "";
@@ -230,7 +244,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				135F5E062779F32E004AD5FB /* alert2.mp3 in Resources */,
+				138C929027894C81007E8496 /* StartQuizView.xib in Resources */,
+				138200DB2787F59000E531F0 /* StartCheckingView.xib in Resources */,
 				132F018B2778612100A81796 /* LaunchScreen.storyboard in Resources */,
+				135BF6E12789924C0085ACAD /* .gitignore in Resources */,
 				135F5E082779FB1D004AD5FB /* ReadMe.md in Resources */,
 				13225996277CB7F10056CF36 /* quiz1.csv in Resources */,
 				135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */,
@@ -292,6 +309,7 @@
 			files = (
 				13A96C4A2779ACF000A9D196 /* AttentionImageAndTextView.swift in Sources */,
 				13A96C502779B25600A9D196 /* QFourViewController.swift in Sources */,
+				138200D92787F55C00E531F0 /* StartCheckingNSObject.swift in Sources */,
 				13A96C4C2779AEEB00A9D196 /* QTwoViewController.swift in Sources */,
 				1327699927787DBB0010310F /* IhanViewController.swift in Sources */,
 				13448EF8277DB0B700E5F678 /* ResultListViewController.swift in Sources */,
@@ -302,6 +320,7 @@
 				13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */,
 				13225998277CB9250056CF36 /* QuizViewController.swift in Sources */,
 				13448EFB277DB10600E5F678 /* MainTableViewCell.swift in Sources */,
+				13A924D7278942B00065572A /* StartQuizNSObject.swift in Sources */,
 				132B3AB0277F5D6500910520 /* ResultDetailViewController.swift in Sources */,
 				132F017F2778611F00A81796 /* AppDelegate.swift in Sources */,
 				132B3AAC277EB52200910520 /* ScoreViewController.swift in Sources */,
@@ -535,7 +554,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+		13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -548,17 +567,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		13E517F0278150FA00852C6B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		13E517F2278150FA00852C6B /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
 		13E517F4278150FA00852C6B /* FirebaseFirestoreSwift-Beta */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			package = 13E517EF278150FA00852C6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */

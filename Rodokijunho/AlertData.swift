@@ -14,8 +14,6 @@ var alertPlayer = AVAudioPlayer()
 var alertPlayer2 = AVAudioPlayer()
 
 func playAlertAudio(){
-//    let alertPath = Bundle.main.bundleURL.appendingPathComponent("alert1.mp3")
-//    var alertPlayer = AVAudioPlayer()
     do{
         alertPlayer = try AVAudioPlayer(contentsOf: alertPath, fileTypeHint: nil)
         alertPlayer.play()
