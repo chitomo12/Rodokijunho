@@ -65,6 +65,7 @@
 		13448EF9277DB10600E5F678 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		13448EFA277DB10600E5F678 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		135BF6E02789924B0085ACAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		135BF6E52789BECB0085ACAD /* アプリ労働基準法GitHubヘッダ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "アプリ労働基準法GitHubヘッダ.png"; sourceTree = "<group>"; };
 		135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageViewController.swift; sourceTree = "<group>"; };
 		135F5E012779F0A5004AD5FB /* alert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert1.mp3; sourceTree = "<group>"; };
 		135F5E032779F13B004AD5FB /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		135BF6E22789BA7E0085ACAD /* ScreenShots */ = {
 			isa = PBXGroup;
 			children = (
+				135BF6E52789BECB0085ACAD /* アプリ労働基準法GitHubヘッダ.png */,
 			);
 			name = ScreenShots;
 			sourceTree = "<group>";

@@ -1,6 +1,6 @@
 
 # アプリ労働基準法
-<img src="https://github.com/chitomo12/Rodokijunho/blob/main/ScreenShot/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202022-01-08%20at%2019.00.13.png?raw=true" alt="アプリ労働基準法" height="200">
+<img src="https://github.com/chitomo12/Rodokijunho/blob/main/ScreenShot/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202022-01-08%20at%2019.00.13.png?raw=true" alt="アプリ労働基準法" height="400">
 
 労働基準法の知識に自信はありますか？
 
