@@ -61,7 +61,7 @@
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="Qge-EL-0YP"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="w9N-qd-RrP"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>

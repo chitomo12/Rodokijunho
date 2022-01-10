@@ -1,7 +1,7 @@
 
 # アプリ労働基準法
 <img src="https://github.com/chitomo12/Rodokijunho/blob/main/アプリ労働基準法GitHubヘッダ.png?raw=true" alt="アプリ労働基準法" height="400">
-
+<blockquote class=”twitter-tweet” data-conversation=”none”><a href=”https://twitter.com/o_ob/statuses/1267113139851558912”></a></blockquote>
 労働基準法の知識に自信はありますか？
 
 「アプリ労働基準法」は、あなたの職場を診断したり、クイズで労働基準法の理解を深めることができるアプリです。

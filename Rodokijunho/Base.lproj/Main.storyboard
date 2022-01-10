@@ -550,14 +550,21 @@ All right reserved.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-o4-12Y">
-                                <rect key="frame" x="20" y="519.5" width="374" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-o4-12Y">
+                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="0HP-BS-Zv8"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ある">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -567,13 +574,21 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-TL-WWQ">
-                                <rect key="frame" x="20" y="636.5" width="374" height="57"/>
+                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="Kjp-rX-hZQ"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ない">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -586,17 +601,15 @@ All right reserved.</string>
                         <viewLayoutGuide key="safeArea" id="g8C-Yp-gQG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="zkN-TL-WWQ" secondAttribute="trailing" constant="20" id="0xw-ti-pKA"/>
-                            <constraint firstItem="zkN-TL-WWQ" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" constant="20" id="7aY-ZU-XTi"/>
                             <constraint firstItem="n7F-eM-sij" firstAttribute="top" secondItem="g8C-Yp-gQG" secondAttribute="top" constant="100" id="CuS-GF-Qmx"/>
                             <constraint firstItem="lmU-cL-7TF" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="Gfv-Kt-1Ka"/>
                             <constraint firstItem="2NF-o4-12Y" firstAttribute="centerY" secondItem="eGr-Ns-xzv" secondAttribute="centerY" constant="100" id="HmM-v9-8XY"/>
+                            <constraint firstItem="2NF-o4-12Y" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="Rmu-ba-DtZ"/>
                             <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="lmU-cL-7TF" secondAttribute="trailing" priority="999" constant="20" id="UAa-fR-070"/>
                             <constraint firstItem="zkN-TL-WWQ" firstAttribute="top" secondItem="2NF-o4-12Y" secondAttribute="bottom" constant="60" id="Vhu-rO-JEk"/>
-                            <constraint firstItem="2NF-o4-12Y" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" constant="20" id="XTX-kN-Lb2"/>
-                            <constraint firstItem="g8C-Yp-gQG" firstAttribute="trailing" secondItem="2NF-o4-12Y" secondAttribute="trailing" constant="20" id="gxo-ak-jtl"/>
                             <constraint firstItem="n7F-eM-sij" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="jaC-ce-zgG"/>
                             <constraint firstItem="lmU-cL-7TF" firstAttribute="top" secondItem="n7F-eM-sij" secondAttribute="bottom" constant="30" id="uMa-ZE-dHr"/>
+                            <constraint firstItem="zkN-TL-WWQ" firstAttribute="centerX" secondItem="eGr-Ns-xzv" secondAttribute="centerX" id="uPV-gZ-Y2O"/>
                             <constraint firstItem="lmU-cL-7TF" firstAttribute="leading" secondItem="g8C-Yp-gQG" secondAttribute="leading" priority="999" constant="20" id="wEy-xu-zNm"/>
                         </constraints>
                     </view>
@@ -634,30 +647,21 @@ All right reserved.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-BS-bhN">
-                                <rect key="frame" x="158.5" y="519.5" width="97" height="57"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="はい">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="MWl-Lz-sux" kind="show" id="8dc-7C-3iV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-O8-y7c">
-                                <rect key="frame" x="140.5" y="636.5" width="133" height="57"/>
+                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="uPq-iV-ny5"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="いいえ">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -665,6 +669,30 @@ All right reserved.</string>
                                 <connections>
                                     <action selector="segueToIhan:" destination="4Sz-Cs-8RO" eventType="touchUpInside" id="C1L-Xe-g9P"/>
                                     <action selector="segueToIhan:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="anm-Oh-Yg0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-BS-bhN">
+                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="7li-Zr-Ecr"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="はい">
+                                            <attributes>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="MWl-Lz-sux" kind="show" id="8dc-7C-3iV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -885,13 +913,20 @@ All right reserved.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-ey-gQi">
-                                <rect key="frame" x="160.5" y="520.5" width="93" height="55"/>
+                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="dI1-3c-lgG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ある">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="34"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -901,13 +936,20 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6m-VJ-zJc">
-                                <rect key="frame" x="158.5" y="635.5" width="97" height="57"/>
+                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="5MK-Ex-f3F"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ない">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -965,13 +1007,20 @@ All right reserved.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-Mq-z91">
-                                <rect key="frame" x="158.5" y="519.5" width="97" height="57"/>
+                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="xgT-TT-CAc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="はい">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -981,14 +1030,20 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-Uc-4cv">
-                                <rect key="frame" x="140.5" y="636.5" width="133" height="57"/>
+                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="iN3-Ai-zOh"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="いいえ">
                                             <attributes>
-                                                <color key="NSColor" red="0.20392158630000001" green="0.47058826679999999" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1046,13 +1101,20 @@ All right reserved.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-LM-GTa">
-                                <rect key="frame" x="158.5" y="519.5" width="97" height="57"/>
+                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="5BF-2H-Xk8"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="はい">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1062,13 +1124,20 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbj-cl-yiR">
-                                <rect key="frame" x="140.5" y="636.5" width="133" height="57"/>
+                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="cgy-XY-iHL"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
                                         <fragment content="いいえ">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="36"/>
+                                                <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1234,6 +1303,9 @@ All right reserved.</string>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

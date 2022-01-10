@@ -99,7 +99,7 @@
                 <constraint firstItem="8HP-by-Tot" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-50" id="OvD-lO-xS2"/>
                 <constraint firstItem="zHn-Qd-tgc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-200" id="Rbt-Tq-bjZ"/>
                 <constraint firstItem="CF4-kk-o9D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WB3-qr-MNV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NB1-2W-293" secondAttribute="trailing" priority="998" constant="20" id="Zg8-0c-T1M"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NB1-2W-293" secondAttribute="trailing" constant="20" id="Zg8-0c-T1M"/>
                 <constraint firstItem="Df2-Fw-fx7" firstAttribute="top" secondItem="NB1-2W-293" secondAttribute="bottom" constant="55" id="a2j-fa-E9C"/>
                 <constraint firstItem="iNJ-kY-x34" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="clB-T0-uj5"/>
                 <constraint firstItem="CF4-kk-o9D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="eyo-Le-jr8"/>
@@ -110,7 +110,7 @@
                 <constraint firstItem="R4q-KJ-5Pm" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="stX-ko-JA7"/>
                 <constraint firstItem="NB1-2W-293" firstAttribute="top" secondItem="CF4-kk-o9D" secondAttribute="bottom" constant="20" id="tjF-Cj-IoV"/>
                 <constraint firstItem="8HP-by-Tot" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ulz-PJ-ads"/>
-                <constraint firstItem="NB1-2W-293" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" priority="998" constant="20" id="vt1-Qd-GzC"/>
+                <constraint firstItem="NB1-2W-293" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="vt1-Qd-GzC"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="44.866071428571423"/>
         </view>
