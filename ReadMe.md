@@ -2,8 +2,6 @@
 # アプリ労働基準法
 <img src="https://github.com/chitomo12/Rodokijunho/blob/main/アプリ労働基準法GitHubヘッダ.png?raw=true" alt="アプリ労働基準法" height="400">  
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">お知らせです。iOSアプリ〈アプリ労働基準法〉をリリースしました。<br><br>診断モードであなたの職場を診断し、クイズモードで労働基準法の知識を習得することができるアプリです。<br><br>これから社会に出る学生さん、今の職場が怪しい社会人の皆さんに触っていただければ幸いです。<a href="https://t.co/MhPOJILkm2">https://t.co/MhPOJILkm2</a> <a href="https://t.co/yLZUjRIMsk">pic.twitter.com/yLZUjRIMsk</a></p>&mdash; MasatomoFukuda (@chitomo12) <a href="https://twitter.com/chitomo12/status/1480047754194087937?ref_src=twsrc%5Etfw">January 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 労働基準法の知識に自信はありますか？
 
 「アプリ労働基準法」は、あなたの職場を診断したり、クイズで労働基準法の理解を深めることができるアプリです。
