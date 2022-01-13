@@ -1,5 +1,5 @@
 //
-//  MainTableViewCell.swift
+//  QuizListTableViewCell.swift
 //  Rodokijunho
 //
 //  Created by 福田正知 on 2021/12/30.
@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class MainTableViewCell: UITableViewCell {
+class QuizListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainTableLabel: UILabel!
     @IBOutlet weak var quizText: UILabel!
@@ -16,18 +16,13 @@ class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainTableImage: UIImageView!
     @IBOutlet weak var answerRecord: UILabel!
-    
-    var statisticData: Int = 0
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func settingContents(indexPath: IndexPath, csvArray: [String], statisticData: Int) {
@@ -42,10 +37,6 @@ class MainTableViewCell: UITableViewCell {
             self.mainTableImage.image = UIImage(systemName: "xmark")
             self.answerRecord.text = "不正解"
         }
-        
-//        // タップジェスチャを追加
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: rightAndLeft, action: #selector(segueToDetailView))
-//        self.rightAndLeft.addGestureRecognizer(tapGestureRecognizer)
     }
     
 

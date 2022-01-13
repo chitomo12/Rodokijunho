@@ -8,15 +8,20 @@
 import UIKit
 import AVFoundation
 
-class QOneViewController: UIViewController {
+class ShindanViewController: UIViewController {
 
     @IBOutlet weak var questionNumber: UILabel!
     @IBOutlet weak var questionText: UILabel!
     
-    @IBAction func segueToIhan(_ sender: Any) {
-        // 労基法違反ビューに遷移する際のアニメーション
-        animateAndSegue()
-    }
+    @IBOutlet weak var answerButton1: UIButton!
+    @IBOutlet weak var answerButton2: UIButton!
+    
+//    @IBAction func segueToIhan(_ sender: Any) {
+//        // 労基法違反ビューに遷移する際のアニメーション
+//        animateAndSegue()
+//    }
+    
+    var shindanViewModel = ShindanViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,28 @@ class QOneViewController: UIViewController {
         prepareAnimationViews()
         
         self.navigationController?.navigationBar.tintColor = UIColor.blue
+        
+        print("Shindan1: \(shindanViewModel.csvData.csvArray[0])")
+        shindanViewModel.currentShindanArray = shindanViewModel.shindanArrays[0]
+        questionText.text = shindanViewModel.shindanArrays[0][1]
+    }
+    
+    @IBAction func answerButtonAction(_ sender: UIButton) {
+        if String(sender.tag) == self.shindanViewModel.shindanArrays[self.shindanViewModel.count][2] {
+            print("大丈夫です")
+            // 誤差補正のためのアニメーション
+            UIView.animate(withDuration: 0.05, delay: 0.0, options: [.curveEaseInOut], animations: {
+                self.answerButton1.layer.opacity = 0.0
+                self.answerButton2.layer.opacity = 0.0
+                self.questionText.center.x += 0.01
+                self.questionNumber.center.x += 0.01
+            }, completion: { _ in
+                self.nextShindan()
+            })
+        } else {
+            print("違反です")
+            self.animateAndSegue()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,23 +59,9 @@ class QOneViewController: UIViewController {
         if let nextView = segue.destination as? IhanViewController {
             nextView.argString = self.questionNumber.text
             nextView.questionText = self.questionText.text
-            nextView.attentionText = "あなたの職場は〈労働基準法第八十九条違反〉の可能性があります。"
-            nextView.kaisetsuText = "常時10人以上が在籍する職場には就業規則の策定が労働基準法第八十九条により義務付けられています。\n仮に従業員数10人未満の職場であっても、無用なトラブルを避けるために就業規則の設置が推奨されています。"
-            nextView.sankouText = """
-            労働基準法
-            第八十九条　常時十人以上の労働者を使用する使用者は、次に掲げる事項について就業規則を作成し、行政官庁に届け出なければならない。次に掲げる事項を変更した場合においても、同様とする。
-            一　始業及び終業の時刻、休憩時間、休日、休暇並びに労働者を二組以上に分けて交替に就業させる場合においては就業時転換に関する事項
-            二　賃金（臨時の賃金等を除く。以下この号において同じ。）の決定、計算及び支払の方法、賃金の締切り及び支払の時期並びに昇給に関する事項
-            三　退職に関する事項（解雇の事由を含む。）
-            三の二　退職手当の定めをする場合においては、適用される労働者の範囲、退職手当の決定、計算及び支払の方法並びに退職手当の支払の時期に関する事項
-            四　臨時の賃金等（退職手当を除く。）及び最低賃金額の定めをする場合においては、これに関する事項
-            五　労働者に食費、作業用品その他の負担をさせる定めをする場合においては、これに関する事項
-            六　安全及び衛生に関する定めをする場合においては、これに関する事項
-            七　職業訓練に関する定めをする場合においては、これに関する事項
-            八　災害補償及び業務外の傷病扶助に関する定めをする場合においては、これに関する事項
-            九　表彰及び制裁の定めをする場合においては、その種類及び程度に関する事項
-            十　前各号に掲げるもののほか、当該事業場の労働者のすべてに適用される定めをする場合においては、これに関する事項
-        """
+            nextView.attentionText = shindanViewModel.currentShindanArray[5]
+            nextView.kaisetsuText = shindanViewModel.currentShindanArray[6]
+            nextView.sankouText = shindanViewModel.currentShindanArray[7]
         }
     }
     
@@ -101,6 +114,65 @@ class QOneViewController: UIViewController {
         self.view.addSubview(downerAttentionsView)
     }
     
+    // 次の診断に進む
+    func nextShindan(){
+        if shindanViewModel.count < shindanViewModel.shindanArrays.count - 1 {
+            shindanViewModel.count += 1
+            shindanViewModel.currentShindanArray = shindanViewModel.shindanArrays[shindanViewModel.count]
+            shindanViewModel.currentShindanNumber = shindanViewModel.count
+            
+            // アニメーション付きで前の問いを隠す
+            UIView.animate(withDuration: 0.15, delay: 0.1, options: [], animations: {
+                self.questionText.center.x -= 100
+                self.questionText.layer.opacity = 0.0
+                self.questionNumber.center.x -= 100
+                self.questionNumber.layer.opacity = 0.0
+            }, completion: { _ in
+                // ビューのテキストを更新
+                self.questionNumber.text = "Q.\(String(self.shindanViewModel.count + 1))"
+                self.questionText.text = self.shindanViewModel.currentShindanArray[1]
+                
+                // 回答ボタンのテキスト属性を定義
+                let buttonTextAttributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 22, weight: .bold),
+                    .foregroundColor: UIColor.white,
+                ]
+                
+                self.answerButton1.setAttributedTitle(
+                    NSAttributedString(string: self.shindanViewModel.currentShindanArray[3],
+                                       attributes: buttonTextAttributes),
+                    for: .normal
+                )
+                self.answerButton2.setAttributedTitle(
+                    NSAttributedString(string: self.shindanViewModel.currentShindanArray[4],
+                                       attributes: buttonTextAttributes),
+                    for: .normal
+                )
+                
+                self.questionNumber.center.x += 200
+                self.questionText.center.x += 200
+                
+                // アニメーション付きでテキストを再表示
+                UIView.animate(withDuration: 0.15, delay: 0.3, options: [.curveEaseInOut], animations: {
+                    self.questionNumber.center.x -= 100
+                    self.questionText.center.x -= 100
+                    
+                    self.questionNumber.layer.opacity = 1.0
+                    self.questionText.layer.opacity = 1.0
+                    
+                    self.answerButton1.layer.opacity = 1.0
+                    self.answerButton2.layer.opacity = 1.0
+                }, completion: { _ in
+//                    self.answerButton2.isHidden = false
+                } )
+            })
+        } else if shindanViewModel.count >= shindanViewModel.shindanArrays.count - 1 {
+            // 最終画面に遷移
+            performSegue(withIdentifier: "toLastViewSegue", sender: nil)
+        }
+    }
+    
+    // アニメーションを表示し、IhanViewに移行する
     func animateAndSegue(){
         // アラート音を再生
         playAlertAudio()

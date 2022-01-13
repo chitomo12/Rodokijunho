@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 診断モード開始時に表示するNSObject
 class StartCheckingNSObject: NSObject {
 
     var appDelegate: AppDelegate {
@@ -23,6 +24,6 @@ class StartCheckingNSObject: NSObject {
         super.init()
         
         startCheckingView = UINib(nibName: "StartCheckingView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView
-        label.text = "診断モード"
+//        label.text = "診断モード"
     }
 }

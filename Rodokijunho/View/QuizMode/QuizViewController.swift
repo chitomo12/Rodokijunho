@@ -40,8 +40,10 @@ class QuizViewController: UIViewController {
     var numberOfCorrectAnswer: Int = 0
     var numberOfIncorrectAnswer: Int = 0
     
+    var quizViewModel = QuizViewModel()
+    
     @IBAction func toNextQuizButtonAction(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.answerButton1.layer.opacity = 0.0
             self.answerButton2.layer.opacity = 0.0
             self.judgeView.layer.opacity = 0
@@ -51,7 +53,7 @@ class QuizViewController: UIViewController {
         })
     }
     
-    // 回答ボタンの属性
+    // 回答ボタンのテキスト属性を定義
     let buttonTextAttributes: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 22, weight: .bold),
         .foregroundColor: UIColor.white,
@@ -60,11 +62,8 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        csvArray = loadCSV(fileName: "quiz1")
-        // csvを読み込み後、正答しなかった問題を前に持ってくる
-        
+//        csvArray = loadCSV(fileName: "quiz1")
+        csvArray = quizViewModel.csvArray
         quizArray = csvArray[count - 1].components(separatedBy: ",")
         quizNumber.text = "第\(String(count))問"
         quizText.text = quizArray[1]
@@ -80,7 +79,7 @@ class QuizViewController: UIViewController {
         )
         self.judgeView.isHidden = true
         
-        // Firestoreから回答数を取得する
+        // Firestoreから正答回答数、不正答回答数を取得する
         (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer) = getAnswerRecord(quizNumber: Int(quizArray[0])!)
         
         self.currentNumberInAll.text = "1 ／ \(totalQuizNumberForOneGame)"
@@ -90,7 +89,6 @@ class QuizViewController: UIViewController {
     
     // 回答ボタンを押した後の処理
     @IBAction func answerButtonAction(_ sender: UIButton) {
-        print(sender.tag)
         if sender.tag == Int(quizArray[2]) {
             print("正解")
             UserDefaults.standard.set(true, forKey: "q\(quizArray[0])_answeredCorrectly")
@@ -146,6 +144,7 @@ class QuizViewController: UIViewController {
             csvArray.removeFirst()
             // XCodeの仕様上、csvをエディタで編集すると最後に余分な行ができるので削除する
             csvArray = csvArray.filter{ !$0.isEmpty }
+            
             // 正答しなかった問題を前に持ってくる
             var arrayForSort: [ArrayForSort] = []
             for i in 1...csvArray.count {
@@ -153,12 +152,12 @@ class QuizViewController: UIViewController {
                                                  quizArrayRowString: csvArray[i-1],
                                                  answeredCorrectly: UserDefaults.standard.bool(forKey: "q\(i)_answeredCorrectly") ? 1 : 0))
             }
-            // 順番をランダムにする
             arrayForSort.shuffle()
             arrayForSort.sort(by: {$0.answeredCorrectly < $1.answeredCorrectly})
             for i in 0..<csvArray.count {
                 csvArray[i] = arrayForSort[i].quizArrayRowString
             }
+            
         } catch {
             print("Error: check the 'func loadCSV(fileName: String) -> [String] ~'")
         }
@@ -184,7 +183,7 @@ class QuizViewController: UIViewController {
             (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer) = getAnswerRecord(quizNumber: Int(quizArray[0])!)
             
             // アニメーション付きで前の問題を隠す
-            UIView.animate(withDuration: 0.3, delay: 0.1, options: [], animations: {
+            UIView.animate(withDuration: 0.15, delay: 0.1, options: [], animations: {
                 self.quizNumberAndText.center.x -= 100
                 self.quizNumberAndText.layer.opacity = 0.0
             }, completion: { _ in
@@ -207,7 +206,7 @@ class QuizViewController: UIViewController {
                 
                 self.quizNumberAndText.center.x += 200
                 // アニメーション付きでテキストを再表示
-                UIView.animate(withDuration: 0.3, delay: 0.5, options: [.curveEaseInOut], animations: {
+                UIView.animate(withDuration: 0.15, delay: 0.3, options: [.curveEaseInOut], animations: {
                     self.quizNumberAndText.center.x -= 100
                     self.quizNumberAndText.layer.opacity = 1.0
                     self.answerButton1.layer.opacity = 1.0
@@ -232,6 +231,7 @@ class QuizViewController: UIViewController {
         }
     }
     
+    // Firestoreから統計数値を取得する関数
     func getAnswerRecord(quizNumber: Int) -> (Int, Int) {
         db.collection("test").document("records").getDocument { docSnapshot, err in
             if let error = err {
@@ -253,15 +253,4 @@ class QuizViewController: UIViewController {
         }
         return (self.numberOfCorrectAnswer, self.numberOfIncorrectAnswer)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

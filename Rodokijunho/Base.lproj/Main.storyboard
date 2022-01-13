@@ -331,7 +331,7 @@ All right reserved.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoS-w0-oxC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828.985507246377" y="764.73214285714278"/>
+            <point key="canvasLocation" x="1829" y="765"/>
         </scene>
         <!--Score View Controller-->
         <scene sceneID="EdJ-1h-J1d">
@@ -453,8 +453,8 @@ All right reserved.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1s-va-7iB">
-                                        <rect key="frame" x="28" y="55" width="64" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <rect key="frame" x="29.5" y="55.5" width="61.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" systemColor="systemGray2Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -527,10 +527,10 @@ All right reserved.</string>
             </objects>
             <point key="canvasLocation" x="2705.7971014492755" y="1451.7857142857142"/>
         </scene>
-        <!--One View Controller-->
+        <!--Shindan View Controller-->
         <scene sceneID="KSG-MU-7M8">
             <objects>
-                <viewController id="qfn-ZK-MRW" customClass="QOneViewController" customModule="Rodokijunho" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qfn-ZK-MRW" customClass="ShindanViewController" customModule="Rodokijunho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGr-Ns-xzv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -550,8 +550,8 @@ All right reserved.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-o4-12Y">
-                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NF-o4-12Y">
+                                <rect key="frame" x="32" y="524.5" width="350" height="47.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="0HP-BS-Zv8"/>
                                 </constraints>
@@ -564,17 +564,17 @@ All right reserved.</string>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ある">
                                             <attributes>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="28"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="4Sz-Cs-8RO" kind="show" id="gQo-2b-naF"/>
+                                    <action selector="answerButtonAction:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="zRP-7m-lMW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-TL-WWQ">
-                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-TL-WWQ">
+                                <rect key="frame" x="32" y="632" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="Kjp-rX-hZQ"/>
                                 </constraints>
@@ -588,13 +588,13 @@ All right reserved.</string>
                                         <fragment content="ない">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="segueToIhan:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="yWI-zf-Eav"/>
+                                    <action selector="answerButtonAction:" destination="qfn-ZK-MRW" eventType="touchUpInside" id="0kV-gm-hij"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -615,9 +615,12 @@ All right reserved.</string>
                     </view>
                     <navigationItem key="navigationItem" id="58f-Zc-9uX"/>
                     <connections>
+                        <outlet property="answerButton1" destination="2NF-o4-12Y" id="nkE-YY-lRJ"/>
+                        <outlet property="answerButton2" destination="zkN-TL-WWQ" id="mJM-qW-fEK"/>
                         <outlet property="questionNumber" destination="n7F-eM-sij" id="kVF-uS-IQu"/>
                         <outlet property="questionText" destination="lmU-cL-7TF" id="2Yo-RU-oSB"/>
                         <segue destination="Pjm-bH-kgz" kind="show" identifier="toIhanView" id="rvN-61-CC8"/>
+                        <segue destination="My7-vD-cIX" kind="show" identifier="toLastViewSegue" id="2vT-il-eN9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcu-ED-iMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -633,13 +636,13 @@ All right reserved.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIm-Sa-AVs">
-                                <rect key="frame" x="178.5" y="188" width="57.5" height="47"/>
+                                <rect key="frame" x="178.5" y="144" width="57.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="研修期間中の賃金はその地域の最低賃金以上ですか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-Of-0aa">
-                                <rect key="frame" x="20" y="265" width="374" height="140"/>
+                                <rect key="frame" x="20" y="221" width="374" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="WBv-xw-CC3"/>
                                 </constraints>
@@ -648,7 +651,7 @@ All right reserved.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-O8-y7c">
-                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="629.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="uPq-iV-ny5"/>
                                 </constraints>
@@ -661,7 +664,7 @@ All right reserved.</string>
                                     <attributedString key="attributedTitle">
                                         <fragment content="いいえ">
                                             <attributes>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -672,7 +675,7 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-BS-bhN">
-                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="526.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="7li-Zr-Ecr"/>
                                 </constraints>
@@ -686,7 +689,7 @@ All right reserved.</string>
                                         <fragment content="はい">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -897,23 +900,23 @@ All right reserved.</string>
             <objects>
                 <viewController id="MWl-Lz-sux" customClass="QThreeViewController" customModule="Rodokijunho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URC-Yu-LJX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-GE-xEG">
-                                <rect key="frame" x="179" y="188" width="56.5" height="47"/>
+                                <rect key="frame" x="179" y="100" width="56.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="勤務時間外の着替えや掃除など、賃金が支払われない業務はありますか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEN-qX-EGQ">
-                                <rect key="frame" x="20" y="265" width="374" height="186.5"/>
+                                <rect key="frame" x="20" y="177" width="374" height="186.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-ey-gQi">
-                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="499.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="dI1-3c-lgG"/>
                                 </constraints>
@@ -926,7 +929,7 @@ All right reserved.</string>
                                         <fragment content="ある">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -936,7 +939,7 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6m-VJ-zJc">
-                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="602.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="5MK-Ex-f3F"/>
                                 </constraints>
@@ -949,7 +952,7 @@ All right reserved.</string>
                                     <attributedString key="attributedTitle">
                                         <fragment content="ない">
                                             <attributes>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -991,23 +994,23 @@ All right reserved.</string>
             <objects>
                 <viewController id="Hfw-Rw-Ns6" customClass="QFourViewController" customModule="Rodokijunho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zE4-BY-Wsq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q4." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7XN-Kg-tkm">
-                                <rect key="frame" x="179" y="188" width="56.5" height="47"/>
+                                <rect key="frame" x="179" y="100" width="56.5" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月の残業時間が45時間を超えていますか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovy-hL-Mv9">
-                                <rect key="frame" x="20" y="265" width="374" height="140"/>
+                                <rect key="frame" x="20" y="177" width="374" height="140"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-Mq-z91">
-                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="499.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="xgT-TT-CAc"/>
                                 </constraints>
@@ -1020,7 +1023,7 @@ All right reserved.</string>
                                         <fragment content="はい">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1030,7 +1033,7 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcV-Uc-4cv">
-                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="602.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="iN3-Ai-zOh"/>
                                 </constraints>
@@ -1043,7 +1046,7 @@ All right reserved.</string>
                                         <fragment content="いいえ">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1085,23 +1088,23 @@ All right reserved.</string>
             <objects>
                 <viewController id="RNe-gG-dwV" customClass="QFiveViewController" customModule="Rodokijunho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PDG-Cm-h1m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q5." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-1b-gAE">
-                                <rect key="frame" x="178.5" y="188" width="57" height="47"/>
+                                <rect key="frame" x="178.5" y="100" width="57" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入社半年内に有給休暇が10日以上付与されていますか？" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-29-q8f">
-                                <rect key="frame" x="20" y="265" width="374" height="140"/>
+                                <rect key="frame" x="20" y="177" width="374" height="140"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-LM-GTa">
-                                <rect key="frame" x="32" y="527.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="499.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="5BF-2H-Xk8"/>
                                 </constraints>
@@ -1114,7 +1117,7 @@ All right reserved.</string>
                                         <fragment content="はい">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1124,7 +1127,7 @@ All right reserved.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbj-cl-yiR">
-                                <rect key="frame" x="32" y="628.5" width="350" height="41"/>
+                                <rect key="frame" x="32" y="602.5" width="350" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="cgy-XY-iHL"/>
                                 </constraints>
@@ -1137,7 +1140,7 @@ All right reserved.</string>
                                         <fragment content="いいえ">
                                             <attributes>
                                                 <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="24" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="24"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1284,6 +1287,7 @@ All right reserved.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2vT-il-eN9"/>
         <segue reference="rvN-61-CC8"/>
     </inferredMetricsTieBreakers>
     <resources>

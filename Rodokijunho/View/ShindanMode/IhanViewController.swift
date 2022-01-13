@@ -37,17 +37,14 @@ class IhanViewController: UIViewController {
         self.sankoujoubun.text = sankouText
 
         //スクロール領域の設定
-        print("①self.contentView.frame.size.height: \(self.contentView.frame.size.height)")
         scrollView.contentSize = CGSize(width: view.frame.size.width,
                                         height: self.contentView.frame.size.height)
         
-        print("②sankoujoubun.frame.height: \(sankoujoubun.frame.height)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // ここでテキストが読み込まれた後のフレームサイズが取得できる
-        print("②sankoujoubun.frame.height: \(sankoujoubun.frame.height)")
         contentView.translatesAutoresizingMaskIntoConstraints = true
         contentView.frame = .init(x: 0, y: 0, width: view.frame.size.width, height: contentView.frame.size.height + sankoujoubun.frame.height)
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: contentView.frame.size.height)

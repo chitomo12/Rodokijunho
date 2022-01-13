@@ -7,6 +7,7 @@
 
 import UIKit
 
+// クイズモード開始時に表示するNSObject
 class StartQuizNSObject: NSObject {
     
     var appDelegate: AppDelegate {
@@ -23,6 +24,5 @@ class StartQuizNSObject: NSObject {
         super.init()
         
         startQuizView = UINib(nibName: "StartQuizView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView
-//        label.text = "クイズモード"
     }
 }

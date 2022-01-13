@@ -19,16 +19,21 @@
 		132F01862778611F00A81796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132F01842778611F00A81796 /* Main.storyboard */; };
 		132F01882778612100A81796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 132F01872778612100A81796 /* Assets.xcassets */; };
 		132F018B2778612100A81796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132F01892778612100A81796 /* LaunchScreen.storyboard */; };
-		132F019327786A6500A81796 /* QOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F019227786A6500A81796 /* QOneViewController.swift */; };
+		132F019327786A6500A81796 /* ShindanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132F019227786A6500A81796 /* ShindanViewController.swift */; };
 		13448EF8277DB0B700E5F678 /* ResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13448EF7277DB0B700E5F678 /* ResultListViewController.swift */; };
-		13448EFB277DB10600E5F678 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13448EF9277DB10600E5F678 /* MainTableViewCell.swift */; };
-		13448EFC277DB10600E5F678 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13448EFA277DB10600E5F678 /* MainTableViewCell.xib */; };
+		13448EFB277DB10600E5F678 /* QuizListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13448EF9277DB10600E5F678 /* QuizListTableViewCell.swift */; };
+		13448EFC277DB10600E5F678 /* QuizListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13448EFA277DB10600E5F678 /* QuizListTableViewCell.xib */; };
 		135BF6E12789924C0085ACAD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 135BF6E02789924B0085ACAD /* .gitignore */; };
 		135F5E002779BB27004AD5FB /* LastPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */; };
 		135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E012779F0A5004AD5FB /* alert1.mp3 */; };
 		135F5E042779F13B004AD5FB /* AlertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F5E032779F13B004AD5FB /* AlertData.swift */; };
 		135F5E062779F32E004AD5FB /* alert2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E052779F32E004AD5FB /* alert2.mp3 */; };
 		135F5E082779FB1D004AD5FB /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 135F5E072779FB1D004AD5FB /* ReadMe.md */; };
+		136A3C75278F0379008461EB /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136A3C74278F0378008461EB /* ResultListViewModel.swift */; };
+		136A3C78278F1645008461EB /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136A3C77278F1645008461EB /* CircleGraphView.swift */; };
+		136A3C80278FD034008461EB /* shindan.csv in Resources */ = {isa = PBXBuildFile; fileRef = 136A3C7F278FD034008461EB /* shindan.csv */; };
+		136A3C82278FD2F8008461EB /* shindanCSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136A3C81278FD2F8008461EB /* shindanCSVData.swift */; };
+		136A3C8427903B70008461EB /* ShindanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136A3C8327903B70008461EB /* ShindanViewModel.swift */; };
 		138200D92787F55C00E531F0 /* StartCheckingNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */; };
 		138200DB2787F59000E531F0 /* StartCheckingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138200DA2787F59000E531F0 /* StartCheckingView.xib */; };
 		138C929027894C81007E8496 /* StartQuizView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A924D8278942D80065572A /* StartQuizView.xib */; };
@@ -42,6 +47,7 @@
 		13E517F1278150FA00852C6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F0278150FA00852C6B /* FirebaseAnalytics */; };
 		13E517F3278150FA00852C6B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F2278150FA00852C6B /* FirebaseFirestore */; };
 		13E517F5278150FA00852C6B /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F4278150FA00852C6B /* FirebaseFirestoreSwift-Beta */; };
+		13FC920227907FB000E610AA /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FC920127907FB000E610AA /* QuizViewModel.swift */; };
 		D4FF8BA5F5624F1620CEA2B5 /* Pods_Rodokijunho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,10 +66,10 @@
 		132F01872778612100A81796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		132F018A2778612100A81796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		132F018C2778612100A81796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		132F019227786A6500A81796 /* QOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QOneViewController.swift; sourceTree = "<group>"; };
+		132F019227786A6500A81796 /* ShindanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShindanViewController.swift; sourceTree = "<group>"; };
 		13448EF7277DB0B700E5F678 /* ResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewController.swift; sourceTree = "<group>"; };
-		13448EF9277DB10600E5F678 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		13448EFA277DB10600E5F678 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		13448EF9277DB10600E5F678 /* QuizListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListTableViewCell.swift; sourceTree = "<group>"; };
+		13448EFA277DB10600E5F678 /* QuizListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizListTableViewCell.xib; sourceTree = "<group>"; };
 		135BF6E02789924B0085ACAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		135BF6E52789BECB0085ACAD /* アプリ労働基準法GitHubヘッダ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "アプリ労働基準法GitHubヘッダ.png"; sourceTree = "<group>"; };
 		135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,11 @@
 		135F5E032779F13B004AD5FB /* AlertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertData.swift; sourceTree = "<group>"; };
 		135F5E052779F32E004AD5FB /* alert2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert2.mp3; sourceTree = "<group>"; };
 		135F5E072779FB1D004AD5FB /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		136A3C74278F0378008461EB /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
+		136A3C77278F1645008461EB /* CircleGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGraphView.swift; sourceTree = "<group>"; };
+		136A3C7F278FD034008461EB /* shindan.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = shindan.csv; sourceTree = "<group>"; };
+		136A3C81278FD2F8008461EB /* shindanCSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shindanCSVData.swift; sourceTree = "<group>"; };
+		136A3C8327903B70008461EB /* ShindanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShindanViewModel.swift; sourceTree = "<group>"; };
 		138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCheckingNSObject.swift; sourceTree = "<group>"; };
 		138200DA2787F59000E531F0 /* StartCheckingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartCheckingView.xib; sourceTree = "<group>"; };
 		13A924D6278942AF0065572A /* StartQuizNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizNSObject.swift; sourceTree = "<group>"; };
@@ -82,6 +93,7 @@
 		13A96C512779B57800A9D196 /* QFiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFiveViewController.swift; sourceTree = "<group>"; };
 		13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rodokijunho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E517ED2781507800852C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13FC920127907FB000E610AA /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		60FC41D9DB1F4CD0B9D821C4 /* Pods-Rodokijunho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rodokijunho.debug.xcconfig"; path = "Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho.debug.xcconfig"; sourceTree = "<group>"; };
 		8C8809C945E6C740F50B9916 /* Pods-Rodokijunho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rodokijunho.release.xcconfig"; path = "Target Support Files/Pods-Rodokijunho/Pods-Rodokijunho.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +119,7 @@
 				135F5E072779FB1D004AD5FB /* ReadMe.md */,
 				135BF6E02789924B0085ACAD /* .gitignore */,
 				132F017D2778611F00A81796 /* Rodokijunho */,
+				13FC92002790783D00E610AA /* Deprecated */,
 				135BF6E22789BA7E0085ACAD /* ScreenShots */,
 				132F017C2778611F00A81796 /* Products */,
 				97F04447FEDE8C6E8029DAE4 /* Pods */,
@@ -125,36 +138,15 @@
 		132F017D2778611F00A81796 /* Rodokijunho */ = {
 			isa = PBXGroup;
 			children = (
-				132F01842778611F00A81796 /* Main.storyboard */,
+				136A3C79278F1655008461EB /* View */,
+				136A3C76278F1436008461EB /* ViewModel */,
+				136A3C73278F02B9008461EB /* Model */,
 				132F017E2778611F00A81796 /* AppDelegate.swift */,
 				132F01802778611F00A81796 /* SceneDelegate.swift */,
-				132F01822778611F00A81796 /* ViewController.swift */,
-				138200DA2787F59000E531F0 /* StartCheckingView.xib */,
-				138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */,
-				13A924D8278942D80065572A /* StartQuizView.xib */,
-				13A924D6278942AF0065572A /* StartQuizNSObject.swift */,
-				132F019227786A6500A81796 /* QOneViewController.swift */,
-				13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */,
-				13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */,
-				13A96C4F2779B25600A9D196 /* QFourViewController.swift */,
-				13A96C512779B57800A9D196 /* QFiveViewController.swift */,
-				13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */,
-				135F5E032779F13B004AD5FB /* AlertData.swift */,
-				1327699827787DBB0010310F /* IhanViewController.swift */,
-				135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */,
-				13225997277CB9250056CF36 /* QuizViewController.swift */,
-				13448EF7277DB0B700E5F678 /* ResultListViewController.swift */,
-				13448EFA277DB10600E5F678 /* MainTableViewCell.xib */,
-				13448EF9277DB10600E5F678 /* MainTableViewCell.swift */,
-				132B3AAF277F5D6500910520 /* ResultDetailViewController.swift */,
-				132B3AAD277F13FB00910520 /* csvData.swift */,
-				13225995277CB7F10056CF36 /* quiz1.csv */,
-				132F01872778612100A81796 /* Assets.xcassets */,
+				132F01842778611F00A81796 /* Main.storyboard */,
 				132F01892778612100A81796 /* LaunchScreen.storyboard */,
+				132F01872778612100A81796 /* Assets.xcassets */,
 				132F018C2778612100A81796 /* Info.plist */,
-				135F5E012779F0A5004AD5FB /* alert1.mp3 */,
-				135F5E052779F32E004AD5FB /* alert2.mp3 */,
-				132B3AAB277EB52200910520 /* ScoreViewController.swift */,
 				13E517ED2781507800852C6B /* GoogleService-Info.plist */,
 			);
 			path = Rodokijunho;
@@ -166,6 +158,96 @@
 				135BF6E52789BECB0085ACAD /* アプリ労働基準法GitHubヘッダ.png */,
 			);
 			name = ScreenShots;
+			sourceTree = "<group>";
+		};
+		136A3C73278F02B9008461EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				135F5E032779F13B004AD5FB /* AlertData.swift */,
+				135F5E012779F0A5004AD5FB /* alert1.mp3 */,
+				135F5E052779F32E004AD5FB /* alert2.mp3 */,
+				136A3C81278FD2F8008461EB /* shindanCSVData.swift */,
+				136A3C7F278FD034008461EB /* shindan.csv */,
+				132B3AAD277F13FB00910520 /* csvData.swift */,
+				13225995277CB7F10056CF36 /* quiz1.csv */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		136A3C76278F1436008461EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				136A3C8327903B70008461EB /* ShindanViewModel.swift */,
+				13FC920127907FB000E610AA /* QuizViewModel.swift */,
+				136A3C74278F0378008461EB /* ResultListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		136A3C79278F1655008461EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				136A3C7B278F2799008461EB /* Home */,
+				136A3C7C278F27CF008461EB /* ShindanMode */,
+				136A3C7D278F27EF008461EB /* QuizMode */,
+				136A3C7E278F27FF008461EB /* ResultMode */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		136A3C7B278F2799008461EB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				132F01822778611F00A81796 /* ViewController.swift */,
+				138200DA2787F59000E531F0 /* StartCheckingView.xib */,
+				138200D82787F55C00E531F0 /* StartCheckingNSObject.swift */,
+				13A924D8278942D80065572A /* StartQuizView.xib */,
+				13A924D6278942AF0065572A /* StartQuizNSObject.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		136A3C7C278F27CF008461EB /* ShindanMode */ = {
+			isa = PBXGroup;
+			children = (
+				132F019227786A6500A81796 /* ShindanViewController.swift */,
+				13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */,
+				1327699827787DBB0010310F /* IhanViewController.swift */,
+				135F5DFF2779BB27004AD5FB /* LastPageViewController.swift */,
+			);
+			path = ShindanMode;
+			sourceTree = "<group>";
+		};
+		136A3C7D278F27EF008461EB /* QuizMode */ = {
+			isa = PBXGroup;
+			children = (
+				13225997277CB9250056CF36 /* QuizViewController.swift */,
+				132B3AAB277EB52200910520 /* ScoreViewController.swift */,
+			);
+			path = QuizMode;
+			sourceTree = "<group>";
+		};
+		136A3C7E278F27FF008461EB /* ResultMode */ = {
+			isa = PBXGroup;
+			children = (
+				13448EF7277DB0B700E5F678 /* ResultListViewController.swift */,
+				136A3C77278F1645008461EB /* CircleGraphView.swift */,
+				13448EFA277DB10600E5F678 /* QuizListTableViewCell.xib */,
+				13448EF9277DB10600E5F678 /* QuizListTableViewCell.swift */,
+				132B3AAF277F5D6500910520 /* ResultDetailViewController.swift */,
+			);
+			path = ResultMode;
+			sourceTree = "<group>";
+		};
+		13FC92002790783D00E610AA /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */,
+				13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */,
+				13A96C4F2779B25600A9D196 /* QFourViewController.swift */,
+				13A96C512779B57800A9D196 /* QFiveViewController.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		2FCFA8A569F3A2ECEB236D96 /* Frameworks */ = {
@@ -262,8 +344,9 @@
 				13225996277CB7F10056CF36 /* quiz1.csv in Resources */,
 				135F5E022779F0A5004AD5FB /* alert1.mp3 in Resources */,
 				132F01882778612100A81796 /* Assets.xcassets in Resources */,
+				136A3C80278FD034008461EB /* shindan.csv in Resources */,
 				13E517EE2781507800852C6B /* GoogleService-Info.plist in Resources */,
-				13448EFC277DB10600E5F678 /* MainTableViewCell.xib in Resources */,
+				13448EFC277DB10600E5F678 /* QuizListTableViewCell.xib in Resources */,
 				132F01862778611F00A81796 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,25 +401,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A96C4A2779ACF000A9D196 /* AttentionImageAndTextView.swift in Sources */,
+				136A3C75278F0379008461EB /* ResultListViewModel.swift in Sources */,
 				13A96C502779B25600A9D196 /* QFourViewController.swift in Sources */,
+				13FC920227907FB000E610AA /* QuizViewModel.swift in Sources */,
 				138200D92787F55C00E531F0 /* StartCheckingNSObject.swift in Sources */,
 				13A96C4C2779AEEB00A9D196 /* QTwoViewController.swift in Sources */,
 				1327699927787DBB0010310F /* IhanViewController.swift in Sources */,
 				13448EF8277DB0B700E5F678 /* ResultListViewController.swift in Sources */,
+				136A3C78278F1645008461EB /* CircleGraphView.swift in Sources */,
 				135F5E042779F13B004AD5FB /* AlertData.swift in Sources */,
 				132F01832778611F00A81796 /* ViewController.swift in Sources */,
-				132F019327786A6500A81796 /* QOneViewController.swift in Sources */,
+				132F019327786A6500A81796 /* ShindanViewController.swift in Sources */,
 				132B3AAE277F13FB00910520 /* csvData.swift in Sources */,
 				13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */,
 				13225998277CB9250056CF36 /* QuizViewController.swift in Sources */,
-				13448EFB277DB10600E5F678 /* MainTableViewCell.swift in Sources */,
+				13448EFB277DB10600E5F678 /* QuizListTableViewCell.swift in Sources */,
 				13A924D7278942B00065572A /* StartQuizNSObject.swift in Sources */,
 				132B3AB0277F5D6500910520 /* ResultDetailViewController.swift in Sources */,
 				132F017F2778611F00A81796 /* AppDelegate.swift in Sources */,
 				132B3AAC277EB52200910520 /* ScoreViewController.swift in Sources */,
+				136A3C8427903B70008461EB /* ShindanViewModel.swift in Sources */,
 				13A96C522779B57800A9D196 /* QFiveViewController.swift in Sources */,
 				135F5E002779BB27004AD5FB /* LastPageViewController.swift in Sources */,
 				132F01812778611F00A81796 /* SceneDelegate.swift in Sources */,
+				136A3C82278FD2F8008461EB /* shindanCSVData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

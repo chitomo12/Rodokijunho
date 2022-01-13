@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var startCheckingButton: UIButton!
     @IBOutlet weak var startQuizButton: UIButton!
+    @IBOutlet weak var testLabel: UILabel!
     
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -31,7 +32,6 @@ class ViewController: UIViewController {
         self.startCheckingButton.setTitle("", for: UIControl.State.normal)
         self.startQuizButton.setTitle("", for: .normal)
         
-        // 以下テスト部分
         startCheckNSObj = StartCheckingNSObject()
         startCheckNSObj.startCheckingView.isUserInteractionEnabled = false
         startCheckNSObj.startCheckingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -42,23 +42,11 @@ class ViewController: UIViewController {
         startQuizNSObj.startQuizView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         view.addSubview(startQuizNSObj.startQuizView)
         
-//        var sampleWidth = 30
-//
-//        let maskPath = CGMutablePath()
-//        maskPath.addEllipse(in: CGRect(x: 10, y: 10, width: 30, height: 30))
-//        maskPath.addEllipse(in: CGRect(x: 60, y: 10, width: sampleWidth, height: 30))
-//
-//        let maskLayer = CAShapeLayer()
-//        maskLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        maskLayer.fillColor = UIColor.black.cgColor
-        
         maskUIViewOne.backgroundColor = UIColor.black
-//        maskUIViewOne.frame = CGRect(x: startCheckingButton.frame.midX, y: startCheckingButton.frame.midY, width: 0, height: 0)
         maskUIViewOne.layer.cornerRadius = maskUIViewOne.frame.width / 2
         startCheckNSObj.startCheckingView.mask = maskUIViewOne
         
         maskUIViewTwo.backgroundColor = UIColor.black
-//        maskUIViewTwo.frame = CGRect(x: startQuizButton.frame.midX, y: startQuizButton.frame.midY, width: 0, height: 0)
         maskUIViewTwo.layer.cornerRadius = maskUIViewTwo.frame.width / 2
         startQuizNSObj.startQuizView.mask = maskUIViewTwo
         
@@ -67,6 +55,7 @@ class ViewController: UIViewController {
         startCheckNSObj.startCheckingButton.addTarget(self, action: #selector(segueToCheckingMode), for: .touchUpInside)
         startQuizNSObj.button.addTarget(self, action: #selector(toggleMaskViewTwo), for: .touchUpInside)
         startQuizNSObj.startQuizButton.addTarget(self, action: #selector(segueToQuizMode), for: .touchUpInside)
+        
     }
     
     @objc func toggleMaskViewOne() {
@@ -132,13 +121,10 @@ class ViewController: UIViewController {
 
     @IBAction func startChecking(_ sender: Any) {
         toggleMaskViewOne()
-
-//        performSegue(withIdentifier: "toCheckingMode", sender: nil)
     }
     
     @IBAction func startQuizButton(_ sender: Any) {
         toggleMaskViewTwo()
-//        performSegue(withIdentifier: "toQuizViewSegue", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

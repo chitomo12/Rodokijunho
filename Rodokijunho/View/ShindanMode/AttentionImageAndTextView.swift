@@ -9,7 +9,7 @@ import UIKit
 
 let screenWidth = UIScreen.main.bounds.size.width
 
-// 左右にアニメーションするAttention用のビュー
+// 左右にアニメーションするAttentionを描写するUIView
 class AttentionImageAndTextView: UIView{
     
     let imageWidth: CGFloat = 0.0
