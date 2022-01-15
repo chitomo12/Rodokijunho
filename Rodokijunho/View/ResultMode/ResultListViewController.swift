@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 // 成績一覧画面
 class ResultListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -15,10 +16,6 @@ class ResultListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var graphView: UIView!
     @IBOutlet weak var seikaisuLabel: UILabel!
     @IBOutlet weak var numberOfSolvedLabel: UILabel!
-    
-//    var csvArray: [String] = []
-//    var quizNumber: Int = 0
-//    var solvedNumber: Int = 0
     
     var correctlyAnsweredRateDictionary: [String: Int] = ["key": 0]
     
