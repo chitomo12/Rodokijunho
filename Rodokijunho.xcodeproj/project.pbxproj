@@ -39,10 +39,6 @@
 		138C929027894C81007E8496 /* StartQuizView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A924D8278942D80065572A /* StartQuizView.xib */; };
 		13A924D7278942B00065572A /* StartQuizNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A924D6278942AF0065572A /* StartQuizNSObject.swift */; };
 		13A96C4A2779ACF000A9D196 /* AttentionImageAndTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */; };
-		13A96C4C2779AEEB00A9D196 /* QTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */; };
-		13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */; };
-		13A96C502779B25600A9D196 /* QFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C4F2779B25600A9D196 /* QFourViewController.swift */; };
-		13A96C522779B57800A9D196 /* QFiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A96C512779B57800A9D196 /* QFiveViewController.swift */; };
 		13E517EE2781507800852C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13E517ED2781507800852C6B /* GoogleService-Info.plist */; };
 		13E517F1278150FA00852C6B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F0278150FA00852C6B /* FirebaseAnalytics */; };
 		13E517F3278150FA00852C6B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 13E517F2278150FA00852C6B /* FirebaseFirestore */; };
@@ -87,10 +83,6 @@
 		13A924D6278942AF0065572A /* StartQuizNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizNSObject.swift; sourceTree = "<group>"; };
 		13A924D8278942D80065572A /* StartQuizView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartQuizView.xib; sourceTree = "<group>"; };
 		13A96C492779ACF000A9D196 /* AttentionImageAndTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionImageAndTextView.swift; sourceTree = "<group>"; };
-		13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTwoViewController.swift; sourceTree = "<group>"; };
-		13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QThreeViewController.swift; sourceTree = "<group>"; };
-		13A96C4F2779B25600A9D196 /* QFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFourViewController.swift; sourceTree = "<group>"; };
-		13A96C512779B57800A9D196 /* QFiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QFiveViewController.swift; sourceTree = "<group>"; };
 		13BBB21251E4224F09ADAFB1 /* Pods_Rodokijunho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rodokijunho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E517ED2781507800852C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13FC920127907FB000E610AA /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
@@ -119,7 +111,6 @@
 				135F5E072779FB1D004AD5FB /* ReadMe.md */,
 				135BF6E02789924B0085ACAD /* .gitignore */,
 				132F017D2778611F00A81796 /* Rodokijunho */,
-				13FC92002790783D00E610AA /* Deprecated */,
 				135BF6E22789BA7E0085ACAD /* ScreenShots */,
 				132F017C2778611F00A81796 /* Products */,
 				97F04447FEDE8C6E8029DAE4 /* Pods */,
@@ -237,17 +228,6 @@
 				132B3AAF277F5D6500910520 /* ResultDetailViewController.swift */,
 			);
 			path = ResultMode;
-			sourceTree = "<group>";
-		};
-		13FC92002790783D00E610AA /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				13A96C4B2779AEEB00A9D196 /* QTwoViewController.swift */,
-				13A96C4D2779B1FB00A9D196 /* QThreeViewController.swift */,
-				13A96C4F2779B25600A9D196 /* QFourViewController.swift */,
-				13A96C512779B57800A9D196 /* QFiveViewController.swift */,
-			);
-			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		2FCFA8A569F3A2ECEB236D96 /* Frameworks */ = {
@@ -402,10 +382,8 @@
 			files = (
 				13A96C4A2779ACF000A9D196 /* AttentionImageAndTextView.swift in Sources */,
 				136A3C75278F0379008461EB /* ResultListViewModel.swift in Sources */,
-				13A96C502779B25600A9D196 /* QFourViewController.swift in Sources */,
 				13FC920227907FB000E610AA /* QuizViewModel.swift in Sources */,
 				138200D92787F55C00E531F0 /* StartCheckingNSObject.swift in Sources */,
-				13A96C4C2779AEEB00A9D196 /* QTwoViewController.swift in Sources */,
 				1327699927787DBB0010310F /* IhanViewController.swift in Sources */,
 				13448EF8277DB0B700E5F678 /* ResultListViewController.swift in Sources */,
 				136A3C78278F1645008461EB /* CircleGraphView.swift in Sources */,
@@ -413,7 +391,6 @@
 				132F01832778611F00A81796 /* ViewController.swift in Sources */,
 				132F019327786A6500A81796 /* ShindanViewController.swift in Sources */,
 				132B3AAE277F13FB00910520 /* csvData.swift in Sources */,
-				13A96C4E2779B1FB00A9D196 /* QThreeViewController.swift in Sources */,
 				13225998277CB9250056CF36 /* QuizViewController.swift in Sources */,
 				13448EFB277DB10600E5F678 /* QuizListTableViewCell.swift in Sources */,
 				13A924D7278942B00065572A /* StartQuizNSObject.swift in Sources */,
@@ -421,7 +398,6 @@
 				132F017F2778611F00A81796 /* AppDelegate.swift in Sources */,
 				132B3AAC277EB52200910520 /* ScoreViewController.swift in Sources */,
 				136A3C8427903B70008461EB /* ShindanViewModel.swift in Sources */,
-				13A96C522779B57800A9D196 /* QFiveViewController.swift in Sources */,
 				135F5E002779BB27004AD5FB /* LastPageViewController.swift in Sources */,
 				132F01812778611F00A81796 /* SceneDelegate.swift in Sources */,
 				136A3C82278FD2F8008461EB /* shindanCSVData.swift in Sources */,
