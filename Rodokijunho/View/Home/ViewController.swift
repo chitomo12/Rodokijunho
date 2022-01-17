@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var startCheckingButton: UIButton!
     @IBOutlet weak var startQuizButton: UIButton!
-    @IBOutlet weak var testLabel: UILabel!
     
     var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     

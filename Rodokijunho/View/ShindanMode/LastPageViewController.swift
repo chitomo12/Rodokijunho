@@ -28,7 +28,7 @@ class LastPageViewController: UIViewController {
         }
     }
     
-    @IBAction func backToTitleButton(_ sender: Any) {
+    @IBAction func backToTitle(_ sender: Any) {
         print("タイトルに戻ります")
         self.navigationController?.popToRootViewController(animated: true)
     }

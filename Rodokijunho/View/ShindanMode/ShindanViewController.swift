@@ -16,12 +16,13 @@ class ShindanViewController: UIViewController {
     @IBOutlet weak var answerButton1: UIButton!
     @IBOutlet weak var answerButton2: UIButton!
     
-//    @IBAction func segueToIhan(_ sender: Any) {
-//        // 労基法違反ビューに遷移する際のアニメーション
-//        animateAndSegue()
-//    }
-    
     var shindanViewModel = ShindanViewModel()
+    
+    // 回答ボタンのテキスト属性を定義
+    let buttonTextAttributes: [NSAttributedString.Key: Any] = [
+        .font: UIFont.systemFont(ofSize: 22, weight: .bold),
+        .foregroundColor: UIColor.white,
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,19 @@ class ShindanViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.blue
         
-        print("Shindan1: \(shindanViewModel.csvData.csvArray[0])")
         shindanViewModel.currentShindanArray = shindanViewModel.shindanArrays[0]
         questionText.text = shindanViewModel.shindanArrays[0][1]
+        
+        self.answerButton1.setAttributedTitle(
+            NSAttributedString(string: self.shindanViewModel.currentShindanArray[3],
+                               attributes: buttonTextAttributes),
+            for: .normal
+        )
+        self.answerButton2.setAttributedTitle(
+            NSAttributedString(string: self.shindanViewModel.currentShindanArray[4],
+                               attributes: buttonTextAttributes),
+            for: .normal
+        )
     }
     
     @IBAction func answerButtonAction(_ sender: UIButton) {
@@ -132,20 +143,14 @@ class ShindanViewController: UIViewController {
                 self.questionNumber.text = "Q.\(String(self.shindanViewModel.count + 1))"
                 self.questionText.text = self.shindanViewModel.currentShindanArray[1]
                 
-                // 回答ボタンのテキスト属性を定義
-                let buttonTextAttributes: [NSAttributedString.Key: Any] = [
-                    .font: UIFont.systemFont(ofSize: 22, weight: .bold),
-                    .foregroundColor: UIColor.white,
-                ]
-                
                 self.answerButton1.setAttributedTitle(
                     NSAttributedString(string: self.shindanViewModel.currentShindanArray[3],
-                                       attributes: buttonTextAttributes),
+                                       attributes: self.buttonTextAttributes),
                     for: .normal
                 )
                 self.answerButton2.setAttributedTitle(
                     NSAttributedString(string: self.shindanViewModel.currentShindanArray[4],
-                                       attributes: buttonTextAttributes),
+                                       attributes: self.buttonTextAttributes),
                     for: .normal
                 )
                 
